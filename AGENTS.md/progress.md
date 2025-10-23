@@ -64,12 +64,16 @@
 - ✅ Paylaşım butonları eklendi (Twitter, LinkedIn, Kopyala)
 - ✅ Skeleton loading animasyonu eklendi
 - ✅ Görsel optimizasyon rehberi oluşturuldu (`assets/images/README.md`)
+- ✅ Lighthouse audit rehberi oluşturuldu (`LIGHTHOUSE-AUDIT.md`)
+- ✅ Google Analytics entegrasyonu eklendi (Measurement ID placeholder ile)
+- ✅ Analytics kurulum rehberi oluşturuldu (`ANALYTICS-SETUP.md`)
+- ✅ Newsletter backend rehberi oluşturuldu (`NEWSLETTER-BACKEND.md`)
 
 
 ## Next tasks
 
 ### Acil (Sonraki Adım)
-1. ☐ Lighthouse audit yap (Chrome DevTools)
+1. ✅ Lighthouse audit yap (Chrome DevTools) - Rehber oluşturuldu
 2. ✅ Gerçek içerik ekle (5-10 haber) - TAMAMLANDI
 3. ✅ OG image oluştur (sosyal medya paylaşımları için) - TAMAMLANDI
 
@@ -81,9 +85,9 @@
 
 ### Orta Vade (2-4 Hafta)
 8. ☐ Custom domain (opsiyonel - aihaber.com gibi)
-9. ☐ Analytics entegrasyonu (Google Analytics veya Plausible)
-10. ☐ Newsletter backend entegrasyonu (Mailchimp/SendGrid)
-11. ☐ İlgili haberler bölümü (dinamik)
+9. ✅ Analytics entegrasyonu (Google Analytics veya Plausible) - Rehber oluşturuldu
+10. ✅ Newsletter backend entegrasyonu (Mailchimp/SendGrid) - Rehber oluşturuldu
+11. ✅ İlgili haberler bölümü (dinamik) - Haber detay sayfalarında mevcut
 
 ### Uzun Vade (v2 - 2+ Ay)
 12. ☐ Backend + CMS entegrasyonu (Strapi/Sanity)
@@ -99,9 +103,9 @@
 ### Teknik Notlar
 - **Git Repo**: https://github.com/alpeki/aihaber
 - **Live Site**: https://alpeki.github.io/aihaber/
-- **Son Commit**: 388dbec (4 haber detay sayfası eklendi)
-- **Toplam Commit**: 6
-- **Toplam Dosya**: 26 dosya, ~4000+ satır kod
+- **Son Commit**: 96c1694 (Lighthouse, Analytics ve Newsletter rehberleri)
+- **Toplam Commit**: 9
+- **Toplam Dosya**: 30 dosya, ~5000+ satır kod
 - **Tailwind CDN**: Şu an CDN kullanıyoruz, production'da build'e geçmek daha performanslı olabilir
 - **Görseller**: Şu an Unsplash placeholder'lar kullanılıyor, gerçek görseller eklenecek
 - **Form backend**: E-posta formu şu an sadece frontend validasyon, backend entegrasyonu gerekecek
