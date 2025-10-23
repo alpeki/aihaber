@@ -40,27 +40,29 @@
 - ✅ İlk commit yapıldı (15 dosya, 1687 satır)
 - ✅ GitHub repo oluşturuldu: https://github.com/alpeki/aihaber
 - ✅ GitHub'a push edildi
+- ✅ SEO optimizasyonu tamamlandı:
+  - `sitemap.xml` oluşturuldu
+  - `robots.txt` oluşturuldu
+  - Meta tags eklendi (Open Graph, Twitter Cards)
+  - Canonical URL'ler eklendi
+- ✅ Haber detay template oluşturuldu (`pages/article-detail.html`)
+- ✅ Hakkımızda, İletişim ve Gizlilik sayfaları eklendi
+- ✅ Footer linkleri düzeltildi
+- ✅ GitHub Pages aktifleştirildi: https://alpeki.github.io/aihaber/
 
 
 ## Next tasks
 
 ### Acil (Sonraki Adım)
-1. ☐ GitHub Pages'i aktifleştir:
-   - Repo Settings > Pages
-   - Source: main branch, / (root)
-   - Site URL: https://alpeki.github.io/aihaber/
-2. ☐ Haber detay template: `pages/article-detail.html`
-3. ☐ Gerçek içerik ekle (5-10 haber)
+1. ☐ Lighthouse audit yap (Chrome DevTools)
+2. ☐ Gerçek içerik ekle (5-10 haber)
+3. ☐ OG image oluştur (sosyal medya paylaşımları için)
 
 ### Kısa Vade (1 Hafta)
-4. ☐ SEO optimizasyonu:
-   - `sitemap.xml` oluştur
-   - `robots.txt` oluştur
-   - Meta tags iyileştir
-   - Open Graph tags ekle
-5. ☐ Lighthouse audit (performans, erişilebilirlik)
-6. ☐ Görselleri optimize et (WebP formatı, boyut küçültme)
-7. ☐ Arama fonksiyonu ekle (basit JavaScript)
+4. ☐ Görselleri optimize et (WebP formatı, boyut küçültme)
+5. ☐ Arama fonksiyonu ekle (basit JavaScript)
+6. ☐ Kategori sayfalarına pagination ekle
+7. ☐ 404 sayfası oluştur
 
 ### Orta Vade (2-4 Hafta)
 8. ☐ Custom domain (opsiyonel - aihaber.com gibi)
