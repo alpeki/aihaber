@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yapay Zeka Haberleri - AI Haber</title>
+  <meta name="description" content="Yapay zeka dünyasından en güncel haberler, gelişmeler ve analizler." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: { "primary": "#4A90E2", "background-light": "#F9F9F9", "background-dark": "#101022" },
+          fontFamily: { display: ["Space Grotesk", "sans-serif"] },
+          borderRadius: { DEFAULT: "0.5rem", lg: "0.75rem", xl: "1rem", full: "9999px" },
+        },
+      },
+    };
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24 }
+  </style>
+  <script>
+    (function() {
+      try {
+        const ls = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const html = document.documentElement;
+        if (ls === 'dark' || (!ls && prefersDark)) {
+          html.classList.add('dark'); html.classList.remove('light');
+        } else {
+          html.classList.add('light'); html.classList.remove('dark');
+        }
+      } catch (_) {}
+    })();
+  </script>
+</head>
+<body class="bg-background-dark font-display text-white">
+  <div class="relative min-h-screen w-full flex flex-col overflow-x-hidden">
+    <header class="sticky top-0 z-40 bg-background-dark/80 backdrop-blur">
+      <div class="mx-auto max-w-7xl px-4 md:px-10 lg:px-20">
+        <div class="flex items-center justify-between border-b border-gray-800 py-4">
+          <div class="flex items-center gap-8">
+            <a href="../index.html" class="flex items-center gap-3 text-white">
+              <span class="size-6 text-primary">
+                <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"/></svg>
+              </span>
+              <h1 class="text-xl font-bold">AI Haber</h1>
+            </a>
+            <nav class="hidden md:flex items-center gap-6">
+              <a class="text-primary font-semibold text-sm" href="yapay-zeka.html">Yapay Zeka</a>
+              <a class="text-gray-300 hover:text-primary text-sm font-medium" href="teknoloji.html">Teknoloji</a>
+              <a class="text-gray-300 hover:text-primary text-sm font-medium" href="bilim.html">Bilim</a>
+              <a class="text-gray-300 hover:text-primary text-sm font-medium" href="robotik.html">Robotik</a>
+              <a class="text-gray-300 hover:text-primary text-sm font-medium" href="gelecek.html">Gelecek</a>
+            </nav>
+          </div>
+          <div class="flex items-center gap-2 sm:gap-4">
+            <button id="theme-toggle" class="flex items-center justify-center p-2 rounded-lg text-gray-300 hover:bg-gray-800">
+              <span class="material-symbols-outlined" id="theme-icon">light_mode</span>
+            </button>
+            <label class="hidden sm:flex flex-col min-w-40 !h-10 max-w-64">
+              <div class="flex w-full items-stretch rounded-lg h-full">
+                <div class="text-gray-400 flex border border-gray-700 bg-gray-900 items-center justify-center pl-3 rounded-l-lg border-r-0">
+                  <span class="material-symbols-outlined">search</span>
+                </div>
+                <input class="form-input w-full rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-gray-700 bg-gray-900 h-full placeholder:text-gray-400 px-4 rounded-l-none border-l-0 pl-2 text-sm" placeholder="Ara..." type="search" />
+              </div>
+            </label>
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-300 hover:bg-gray-800">
+              <span class="material-symbols-outlined">menu</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="mobile-menu" class="md:hidden hidden">
+        <div class="mx-auto max-w-7xl px-4 py-3 border-b border-gray-800">
+          <nav class="flex flex-col gap-2">
+            <a class="px-3 py-2 rounded-lg bg-gray-800 text-primary font-semibold" href="yapay-zeka.html">Yapay Zeka</a>
+            <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="teknoloji.html">Teknoloji</a>
+            <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="bilim.html">Bilim</a>
+            <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="robotik.html">Robotik</a>
+            <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="gelecek.html">Gelecek</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-7xl w-full px-4 md:px-10 lg:px-20 py-8 sm:py-10">
+      <div class="mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold mb-2">Yapay Zeka</h1>
+        <p class="text-gray-400">Yapay zeka dünyasından en güncel haberler ve gelişmeler</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <article class="flex flex-col gap-4 p-5 rounded-xl shadow-2xl bg-gray-900 hover:-translate-y-1 transition-transform">
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600" alt="AI Sanat" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
+          <div>
+            <h2 class="text-lg font-bold">Yapay Zeka Sanat Üretebilir mi?</h2>
+            <p class="text-gray-400 text-sm mt-2">Yeni algoritmalar insan ve makine yaratıcılığı arasındaki çizgileri bulanıklaştırıyor.</p>
+          </div>
+          <a href="#" class="mt-auto text-blue-400 font-bold text-sm self-start hover:underline">Devamını Oku →</a>
+        </article>
+
+        <article class="flex flex-col gap-4 p-5 rounded-xl shadow-2xl bg-gray-900 hover:-translate-y-1 transition-transform">
+          <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600" alt="ChatGPT" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
+          <div>
+            <h2 class="text-lg font-bold">ChatGPT-5 Geliyor: Neler Değişecek?</h2>
+            <p class="text-gray-400 text-sm mt-2">OpenAI'ın yeni dil modeli ile ilgili ilk detaylar ortaya çıktı.</p>
+          </div>
+          <a href="#" class="mt-auto text-blue-400 font-bold text-sm self-start hover:underline">Devamını Oku →</a>
+        </article>
+
+        <article class="flex flex-col gap-4 p-5 rounded-xl shadow-2xl bg-gray-900 hover:-translate-y-1 transition-transform">
+          <img src="https://images.unsplash.com/photo-1655720828018-edd2daec9349?w=600" alt="AI Etiği" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
+          <div>
+            <h2 class="text-lg font-bold">Yapay Zeka Etiği: Yeni Düzenlemeler</h2>
+            <p class="text-gray-400 text-sm mt-2">AB'nin AI Act yasası ile yapay zeka kullanımına getirilen kurallar.</p>
+          </div>
+          <a href="#" class="mt-auto text-blue-400 font-bold text-sm self-start hover:underline">Devamını Oku →</a>
+        </article>
+
+        <article class="flex flex-col gap-4 p-5 rounded-xl shadow-2xl bg-gray-900 hover:-translate-y-1 transition-transform">
+          <img src="https://images.unsplash.com/photo-1676573409838-239f8d0d5e0c?w=600" alt="Machine Learning" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
+          <div>
+            <h2 class="text-lg font-bold">Makine Öğrenmesinde Yeni Atılım</h2>
+            <p class="text-gray-400 text-sm mt-2">Daha az veriyle daha iyi sonuçlar veren yeni algoritma geliştirildi.</p>
+          </div>
+          <a href="#" class="mt-auto text-blue-400 font-bold text-sm self-start hover:underline">Devamını Oku →</a>
+        </article>
+
+        <article class="flex flex-col gap-4 p-5 rounded-xl shadow-2xl bg-gray-900 hover:-translate-y-1 transition-transform">
+          <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600" alt="Neural Networks" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
+          <div>
+            <h2 class="text-lg font-bold">Sinir Ağları ve Beyin Benzerliği</h2>
+            <p class="text-gray-400 text-sm mt-2">Yapay sinir ağları insan beynine ne kadar yaklaştı?</p>
+          </div>
+          <a href="#" class="mt-auto text-blue-400 font-bold text-sm self-start hover:underline">Devamını Oku →</a>
+        </article>
+
+        <article class="flex flex-col gap-4 p-5 rounded-xl shadow-2xl bg-gray-900 hover:-translate-y-1 transition-transform">
+          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600" alt="AI Chip" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
+          <div>
+            <h2 class="text-lg font-bold">Yeni Nesil AI Çipleri Tanıtıldı</h2>
+            <p class="text-gray-400 text-sm mt-2">NVIDIA ve Google'ın yeni yapay zeka işlemcileri performans rekorları kırıyor.</p>
+          </div>
+          <a href="#" class="mt-auto text-blue-400 font-bold text-sm self-start hover:underline">Devamını Oku →</a>
+        </article>
+      </div>
+    </main>
+
+    <footer class="bg-gray-900 mt-16">
+      <div class="mx-auto max-w-7xl px-4 md:px-10 lg:px-20 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+          <div>
+            <h4 class="font-bold text-lg text-white mb-2">AI Haber</h4>
+            <p class="text-sm text-gray-400">Yapay zeka, teknoloji ve bilimin geleceğini keşfedin.</p>
+          </div>
+          <div>
+            <h5 class="font-semibold text-gray-200 mb-2">Kategoriler</h5>
+            <ul class="space-y-1">
+              <li><a class="text-sm text-gray-400 hover:text-primary" href="yapay-zeka.html">Yapay Zeka</a></li>
+              <li><a class="text-sm text-gray-400 hover:text-primary" href="teknoloji.html">Teknoloji</a></li>
+              <li><a class="text-sm text-gray-400 hover:text-primary" href="bilim.html">Bilim</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-semibold text-gray-200 mb-2">Hakkımızda</h5>
+            <ul class="space-y-1">
+              <li><a class="text-sm text-gray-400 hover:text-primary" href="#">İletişim</a></li>
+              <li><a class="text-sm text-gray-400 hover:text-primary" href="#">Gizlilik</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-semibold text-gray-200 mb-2">Takip Edin</h5>
+            <p class="text-sm text-gray-400">Twitter • LinkedIn • GitHub</p>
+          </div>
+        </div>
+        <div class="mt-8 border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+          <p>© 2024 AI Haber. Tüm hakları saklıdır.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const htmlEl = document.documentElement;
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    function setTheme(mode) {
+      if (mode === 'dark') {
+        htmlEl.classList.add('dark'); htmlEl.classList.remove('light'); themeIcon.textContent = 'light_mode';
+      } else {
+        htmlEl.classList.add('light'); htmlEl.classList.remove('dark'); themeIcon.textContent = 'dark_mode';
+      }
+      try { localStorage.setItem('theme', mode); } catch (_) {}
+    }
+    themeToggle?.addEventListener('click', () => {
+      setTheme(htmlEl.classList.contains('dark') ? 'light' : 'dark');
+    });
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn?.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+  </script>
+</body>
+</html>

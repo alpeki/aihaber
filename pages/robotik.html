@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Robotik Haberleri - AI Haber</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary":"#4A90E2","background-light":"#F9F9F9","background-dark":"#101022"},fontFamily:{display:["Space Grotesk","sans-serif"]},borderRadius:{DEFAULT:"0.5rem",lg:"0.75rem",xl:"1rem",full:"9999px"}}}};(function(){try{const ls=localStorage.getItem('theme');const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;const html=document.documentElement;if(ls==='dark'||(!ls&&prefersDark)){html.classList.add('dark');html.classList.remove('light');}else{html.classList.add('light');html.classList.remove('dark');}}catch(_){}})();</script>
+  <style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}</style>
+</head>
+<body class="bg-background-dark font-display text-white">
+  <header class="sticky top-0 z-40 bg-background-dark/80 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 md:px-10 lg:px-20">
+      <div class="flex items-center justify-between border-b border-gray-800 py-4">
+        <div class="flex items-center gap-8">
+          <a href="../index.html" class="flex items-center gap-3 text-white">
+            <span class="size-6 text-primary"><svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"/></svg></span>
+            <h1 class="text-xl font-bold">AI Haber</h1>
+          </a>
+          <nav class="hidden md:flex items-center gap-6">
+            <a class="text-gray-300 hover:text-primary text-sm font-medium" href="yapay-zeka.html">Yapay Zeka</a>
+            <a class="text-gray-300 hover:text-primary text-sm font-medium" href="teknoloji.html">Teknoloji</a>
+            <a class="text-gray-300 hover:text-primary text-sm font-medium" href="bilim.html">Bilim</a>
+            <a class="text-primary font-semibold text-sm" href="robotik.html">Robotik</a>
+            <a class="text-gray-300 hover:text-primary text-sm font-medium" href="gelecek.html">Gelecek</a>
+          </nav>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="theme-toggle" class="p-2 rounded-lg text-gray-300 hover:bg-gray-800"><span class="material-symbols-outlined" id="theme-icon">light_mode</span></button>
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-300 hover:bg-gray-800"><span class="material-symbols-outlined">menu</span></button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden">
+      <div class="mx-auto max-w-7xl px-4 py-3 border-b border-gray-800">
+        <nav class="flex flex-col gap-2">
+          <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="yapay-zeka.html">Yapay Zeka</a>
+          <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="teknoloji.html">Teknoloji</a>
+          <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="bilim.html">Bilim</a>
+          <a class="px-3 py-2 rounded-lg bg-gray-800 text-primary font-semibold" href="robotik.html">Robotik</a>
+          <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="gelecek.html">Gelecek</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main class="mx-auto max-w-7xl w-full px-4 md:px-10 lg:px-20 py-8">
+    <div class="mb-8"><h1 class="text-3xl md:text-4xl font-bold mb-2">Robotik</h1><p class="text-gray-400">Robotik dünyasından en güncel gelişmeler</p></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <article class="flex flex-col gap-4 p-5 rounded-xl bg-gray-900 hover:-translate-y-1 transition-transform">
+        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600" alt="Robot" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
+        <div><h2 class="text-lg font-bold">Boston Dynamics'in Yeni Robotu Atlas</h2><p class="text-gray-400 text-sm mt-2">İnsansı robot Atlas parkur koşusunda rekor kırdı.</p></div>
+        <a href="#" class="mt-auto text-blue-400 font-bold text-sm hover:underline">Devamını Oku →</a>
+      </article>
+      <article class="flex flex-col gap-4 p-5 rounded-xl bg-gray-900 hover:-translate-y-1 transition-transform">
+        <img src="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=600" alt="Drone" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
+        <div><h2 class="text-lg font-bold">Otonom Dronlar Kargo Taşımaya Başladı</h2><p class="text-gray-400 text-sm mt-2">Amazon'un Prime Air servisi ilk teslimatları yaptı.</p></div>
+        <a href="#" class="mt-auto text-blue-400 font-bold text-sm hover:underline">Devamını Oku →</a>
+      </article>
+      <article class="flex flex-col gap-4 p-5 rounded-xl bg-gray-900 hover:-translate-y-1 transition-transform">
+        <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?w=600" alt="Surgery" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
+        <div><h2 class="text-lg font-bold">Robotik Cerrahi Yeni Döneme Girdi</h2><p class="text-gray-400 text-sm mt-2">Da Vinci Xi sistemi ameliyatları daha güvenli hale getiriyor.</p></div>
+        <a href="#" class="mt-auto text-blue-400 font-bold text-sm hover:underline">Devamını Oku →</a>
+      </article>
+      <article class="flex flex-col gap-4 p-5 rounded-xl bg-gray-900 hover:-translate-y-1 transition-transform">
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600" alt="Factory" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
+        <div><h2 class="text-lg font-bold">Endüstri 4.0 ve Akıllı Fabrikalar</h2><p class="text-gray-400 text-sm mt-2">Robotlar üretim süreçlerini tamamen değiştiriyor.</p></div>
+        <a href="#" class="mt-auto text-blue-400 font-bold text-sm hover:underline">Devamını Oku →</a>
+      </article>
+      <article class="flex flex-col gap-4 p-5 rounded-xl bg-gray-900 hover:-translate-y-1 transition-transform">
+        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600" alt="AI Robot" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
+        <div><h2 class="text-lg font-bold">Yapay Zeka Destekli Ev Robotları</h2><p class="text-gray-400 text-sm mt-2">Akıllı ev asistanları günlük işleri kolaylaştırıyor.</p></div>
+        <a href="#" class="mt-auto text-blue-400 font-bold text-sm hover:underline">Devamını Oku →</a>
+      </article>
+      <article class="flex flex-col gap-4 p-5 rounded-xl bg-gray-900 hover:-translate-y-1 transition-transform">
+        <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=600" alt="Mars Rover" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
+        <div><h2 class="text-lg font-bold">Mars Keşif Robotları Görevde</h2><p class="text-gray-400 text-sm mt-2">Perseverance ve Curiosity Mars'ta önemli keşifler yapıyor.</p></div>
+        <a href="#" class="mt-auto text-blue-400 font-bold text-sm hover:underline">Devamını Oku →</a>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-900 mt-16">
+    <div class="mx-auto max-w-7xl px-4 md:px-10 lg:px-20 py-10">
+      <div class="mt-8 border-t border-gray-800 pt-8 text-center text-sm text-gray-400"><p>© 2024 AI Haber. Tüm hakları saklıdır.</p></div>
+    </div>
+  </footer>
+  <script>const htmlEl=document.documentElement;const themeToggle=document.getElementById('theme-toggle');const themeIcon=document.getElementById('theme-icon');function setTheme(mode){if(mode==='dark'){htmlEl.classList.add('dark');htmlEl.classList.remove('light');themeIcon.textContent='light_mode';}else{htmlEl.classList.add('light');htmlEl.classList.remove('dark');themeIcon.textContent='dark_mode';}try{localStorage.setItem('theme',mode);}catch(_){}}themeToggle?.addEventListener('click',()=>{setTheme(htmlEl.classList.contains('dark')?'light':'dark');});const mobileBtn=document.getElementById('mobile-menu-btn');const mobileMenu=document.getElementById('mobile-menu');mobileBtn?.addEventListener('click',()=>{mobileMenu.classList.toggle('hidden');});</script>
+</body>
+</html>
