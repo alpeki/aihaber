@@ -28,8 +28,16 @@
             <a class="text-gray-300 hover:text-primary text-sm font-medium" href="gelecek.html">Gelecek</a>
           </nav>
         </div>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 sm:gap-4">
           <button id="theme-toggle" class="p-2 rounded-lg text-gray-300 hover:bg-gray-800"><span class="material-symbols-outlined" id="theme-icon">light_mode</span></button>
+          <label class="hidden sm:flex flex-col min-w-40 !h-10 max-w-64">
+            <div class="flex w-full items-stretch rounded-lg h-full">
+              <div class="text-gray-400 flex border border-gray-700 bg-gray-900 items-center justify-center pl-3 rounded-l-lg border-r-0">
+                <span class="material-symbols-outlined">search</span>
+              </div>
+              <input id="search-input" class="form-input w-full rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-gray-700 bg-gray-900 h-full placeholder:text-gray-400 px-4 rounded-l-none border-l-0 pl-2 text-sm" placeholder="Ara..." type="search" />
+            </div>
+          </label>
           <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-300 hover:bg-gray-800"><span class="material-symbols-outlined">menu</span></button>
         </div>
       </div>
@@ -86,6 +94,6 @@
       <div class="mt-8 border-t border-gray-800 pt-8 text-center text-sm text-gray-400"><p>© 2024 AI Haber. Tüm hakları saklıdır.</p></div>
     </div>
   </footer>
-  <script>const htmlEl=document.documentElement;const themeToggle=document.getElementById('theme-toggle');const themeIcon=document.getElementById('theme-icon');function setTheme(mode){if(mode==='dark'){htmlEl.classList.add('dark');htmlEl.classList.remove('light');themeIcon.textContent='light_mode';}else{htmlEl.classList.add('light');htmlEl.classList.remove('dark');themeIcon.textContent='dark_mode';}try{localStorage.setItem('theme',mode);}catch(_){}}themeToggle?.addEventListener('click',()=>{setTheme(htmlEl.classList.contains('dark')?'light':'dark');});const mobileBtn=document.getElementById('mobile-menu-btn');const mobileMenu=document.getElementById('mobile-menu');mobileBtn?.addEventListener('click',()=>{mobileMenu.classList.toggle('hidden');});</script>
+  <script>const htmlEl=document.documentElement;const themeToggle=document.getElementById('theme-toggle');const themeIcon=document.getElementById('theme-icon');function setTheme(mode){if(mode==='dark'){htmlEl.classList.add('dark');htmlEl.classList.remove('light');themeIcon.textContent='light_mode';}else{htmlEl.classList.add('light');htmlEl.classList.remove('dark');themeIcon.textContent='dark_mode';}try{localStorage.setItem('theme',mode);}catch(_){}}themeToggle?.addEventListener('click',()=>{setTheme(htmlEl.classList.contains('dark')?'light':'dark');});const mobileBtn=document.getElementById('mobile-menu-btn');const mobileMenu=document.getElementById('mobile-menu');mobileBtn?.addEventListener('click',()=>{mobileMenu.classList.toggle('hidden');});const searchInput=document.getElementById('search-input');searchInput?.addEventListener('keypress',(e)=>{if(e.key==='Enter'){e.preventDefault();const query=searchInput.value.trim();if(query){window.location.href=`https://www.google.com/search?q=site:alpeki.github.io/aihaber ${encodeURIComponent(query)}`;}}});</script>
 </body>
 </html>
