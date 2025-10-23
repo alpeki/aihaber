@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hakkımızda - AI Haber</title>
+  <meta name="description" content="AI Haber hakkında bilgi edinin. Misyonumuz, vizyonumuz ve ekibimiz." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary":"#4A90E2","background-light":"#F9F9F9","background-dark":"#101022"},fontFamily:{display:["Space Grotesk","sans-serif"]},borderRadius:{DEFAULT:"0.5rem",lg:"0.75rem",xl:"1rem",full:"9999px"}}}};(function(){try{const ls=localStorage.getItem('theme');const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;const html=document.documentElement;if(ls==='dark'||(!ls&&prefersDark)){html.classList.add('dark');html.classList.remove('light');}else{html.classList.add('light');html.classList.remove('dark');}}catch(_){}})();</script>
+  <style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}</style>
+</head>
+<body class="bg-background-dark font-display text-white">
+  <header class="sticky top-0 z-40 bg-background-dark/80 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 md:px-10 lg:px-20">
+      <div class="flex items-center justify-between border-b border-gray-800 py-4">
+        <div class="flex items-center gap-8">
+          <a href="../index.html" class="flex items-center gap-3 text-white">
+            <span class="size-6 text-primary"><svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"/></svg></span>
+            <h1 class="text-xl font-bold">AI Haber</h1>
+          </a>
+          <nav class="hidden md:flex items-center gap-6">
+            <a class="text-gray-300 hover:text-primary text-sm font-medium" href="yapay-zeka.html">Yapay Zeka</a>
+            <a class="text-gray-300 hover:text-primary text-sm font-medium" href="teknoloji.html">Teknoloji</a>
+            <a class="text-gray-300 hover:text-primary text-sm font-medium" href="bilim.html">Bilim</a>
+            <a class="text-gray-300 hover:text-primary text-sm font-medium" href="robotik.html">Robotik</a>
+            <a class="text-gray-300 hover:text-primary text-sm font-medium" href="gelecek.html">Gelecek</a>
+          </nav>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="theme-toggle" class="p-2 rounded-lg text-gray-300 hover:bg-gray-800"><span class="material-symbols-outlined" id="theme-icon">light_mode</span></button>
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-300 hover:bg-gray-800"><span class="material-symbols-outlined">menu</span></button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden">
+      <div class="mx-auto max-w-7xl px-4 py-3 border-b border-gray-800">
+        <nav class="flex flex-col gap-2">
+          <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="yapay-zeka.html">Yapay Zeka</a>
+          <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="teknoloji.html">Teknoloji</a>
+          <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="bilim.html">Bilim</a>
+          <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="robotik.html">Robotik</a>
+          <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="gelecek.html">Gelecek</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-4xl w-full px-4 md:px-10 py-12">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6">Hakkımızda</h1>
+    
+    <div class="prose prose-invert max-w-none">
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-4">Misyonumuz</h2>
+        <p class="text-gray-300 leading-relaxed">
+          AI Haber, Türkiye'de yapay zeka, teknoloji ve bilim alanındaki en güncel gelişmeleri Türkçe olarak takip edebileceğiniz bir platformdur. Amacımız, karmaşık teknoloji haberlerini herkesin anlayabileceği şekilde sunmak ve toplumun teknoloji okuryazarlığını artırmaktır.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-4">Vizyonumuz</h2>
+        <p class="text-gray-300 leading-relaxed">
+          Yapay zeka ve teknolojinin hızla geliştiği bu dönemde, doğru ve güvenilir bilgiye erişim her zamankinden daha önemli. Vizyonumuz, Türkiye'nin en güvenilir teknoloji haber kaynağı olmak ve okuyucularımıza geleceği şekillendiren teknolojileri anlamalarında yardımcı olmaktır.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-4">Değerlerimiz</h2>
+        <ul class="space-y-4 text-gray-300">
+          <li><strong class="text-white">Güvenilirlik:</strong> Tüm haberlerimiz doğrulanmış kaynaklardan alınır ve editöryal süreçten geçer.</li>
+          <li><strong class="text-white">Erişilebilirlik:</strong> Teknik konuları herkesin anlayabileceği dilde anlatırız.</li>
+          <li><strong class="text-white">Tarafsızlık:</strong> Objektif habercilik ilkelerine bağlıyız.</li>
+          <li><strong class="text-white">Yenilikçilik:</strong> Teknolojinin geleceğini keşfetmek için sürekli araştırma yaparız.</li>
+        </ul>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-4">Ekibimiz</h2>
+        <p class="text-gray-300 leading-relaxed mb-6">
+          AI Haber ekibi, teknoloji gazetecileri, yazılım mühendisleri ve AI uzmanlarından oluşur. Her birimiz teknolojiye tutkuyla bağlıyız ve bu tutkuyu sizlerle paylaşmaktan mutluluk duyuyoruz.
+        </p>
+        <div class="bg-gray-900 rounded-xl p-6">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-2xl">AB</div>
+            <div>
+              <h3 class="font-bold text-lg">Alper Bayrak</h3>
+              <p class="text-gray-400">Kurucu & Editör</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold mb-4">İletişim</h2>
+        <p class="text-gray-300 leading-relaxed">
+          Sorularınız, önerileriniz veya işbirliği teklifleriniz için <a href="iletisim.html" class="text-primary hover:underline">iletişim sayfamızı</a> ziyaret edebilirsiniz.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="bg-gray-900 mt-16">
+    <div class="mx-auto max-w-7xl px-4 md:px-10 lg:px-20 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+        <div>
+          <h4 class="font-bold text-lg text-white mb-2">AI Haber</h4>
+          <p class="text-sm text-gray-400">Yapay zeka, teknoloji ve bilimin geleceğini keşfedin.</p>
+        </div>
+        <div>
+          <h5 class="font-semibold text-gray-200 mb-2">Kategoriler</h5>
+          <ul class="space-y-1">
+            <li><a class="text-sm text-gray-400 hover:text-primary" href="yapay-zeka.html">Yapay Zeka</a></li>
+            <li><a class="text-sm text-gray-400 hover:text-primary" href="teknoloji.html">Teknoloji</a></li>
+            <li><a class="text-sm text-gray-400 hover:text-primary" href="bilim.html">Bilim</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-semibold text-gray-200 mb-2">Hakkımızda</h5>
+          <ul class="space-y-1">
+            <li><a class="text-sm text-gray-400 hover:text-primary" href="hakkimizda.html">Hakkımızda</a></li>
+            <li><a class="text-sm text-gray-400 hover:text-primary" href="iletisim.html">İletişim</a></li>
+            <li><a class="text-sm text-gray-400 hover:text-primary" href="gizlilik.html">Gizlilik</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-semibold text-gray-200 mb-2">Takip Edin</h5>
+          <p class="text-sm text-gray-400">Twitter • LinkedIn • GitHub</p>
+        </div>
+      </div>
+      <div class="mt-8 border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+        <p>© 2024 AI Haber. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>const htmlEl=document.documentElement;const themeToggle=document.getElementById('theme-toggle');const themeIcon=document.getElementById('theme-icon');function setTheme(mode){if(mode==='dark'){htmlEl.classList.add('dark');htmlEl.classList.remove('light');themeIcon.textContent='light_mode';}else{htmlEl.classList.add('light');htmlEl.classList.remove('dark');themeIcon.textContent='dark_mode';}try{localStorage.setItem('theme',mode);}catch(_){}}themeToggle?.addEventListener('click',()=>{setTheme(htmlEl.classList.contains('dark')?'light':'dark');});const mobileBtn=document.getElementById('mobile-menu-btn');const mobileMenu=document.getElementById('mobile-menu');mobileBtn?.addEventListener('click',()=>{mobileMenu.classList.toggle('hidden');});</script>
+</body>
+</html>
