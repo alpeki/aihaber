@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://alpeki.github.io/aihaber/" />
   <meta property="og:title" content="AI Haber - Yapay Zeka, Teknoloji ve Bilim Haberleri" />
   <meta property="og:description" content="Yapay zeka, teknoloji ve bilim dünyasından güncel haberler, analizler ve özetler." />
-  <meta property="og:image" content="https://alpeki.github.io/aihaber/assets/images/og-image.jpg" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop" />
   <meta property="og:locale" content="tr_TR" />
   <meta property="og:site_name" content="AI Haber" />
   
@@ -23,7 +23,7 @@
   <meta name="twitter:url" content="https://alpeki.github.io/aihaber/" />
   <meta name="twitter:title" content="AI Haber - Yapay Zeka, Teknoloji ve Bilim Haberleri" />
   <meta name="twitter:description" content="Yapay zeka, teknoloji ve bilim dünyasından güncel haberler, analizler ve özetler." />
-  <meta name="twitter:image" content="https://alpeki.github.io/aihaber/assets/images/og-image.jpg" />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop" />
   
   <!-- Additional SEO -->
   <meta name="robots" content="index, follow" />
@@ -67,52 +67,52 @@
     })();
   </script>
 </head>
-<body class="bg-background-dark font-display text-white">
+<body class="font-display dark:bg-background-dark dark:text-white bg-background-light text-gray-900">
   <div class="relative min-h-screen w-full flex flex-col overflow-x-hidden">
-    <header class="sticky top-0 z-40 bg-background-dark/80 backdrop-blur">
+    <header class="sticky top-0 z-40 dark:bg-background-dark/80 bg-white/80 backdrop-blur">
       <div class="mx-auto max-w-7xl px-4 md:px-10 lg:px-20">
-        <div class="flex items-center justify-between border-b border-gray-800 py-4">
+        <div class="flex items-center justify-between border-b dark:border-gray-800 border-gray-200 py-4">
           <div class="flex items-center gap-8">
-            <a href="#" class="flex items-center gap-3 text-white">
+            <a href="#" class="flex items-center gap-3 dark:text-white text-gray-900">
               <span class="size-6 text-primary">
                 <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"/></svg>
               </span>
               <h1 class="text-xl font-bold">AI Haber</h1>
             </a>
             <nav class="hidden md:flex items-center gap-6">
-              <a class="text-gray-300 hover:text-primary text-sm font-medium" href="pages/yapay-zeka.html">Yapay Zeka</a>
-              <a class="text-gray-300 hover:text-primary text-sm font-medium" href="pages/teknoloji.html">Teknoloji</a>
-              <a class="text-gray-300 hover:text-primary text-sm font-medium" href="pages/bilim.html">Bilim</a>
-              <a class="text-gray-300 hover:text-primary text-sm font-medium" href="pages/robotik.html">Robotik</a>
-              <a class="text-gray-300 hover:text-primary text-sm font-medium" href="pages/gelecek.html">Gelecek</a>
+              <a class="dark:text-gray-300 text-gray-600 hover:text-primary text-sm font-medium" href="pages/yapay-zeka.html">Yapay Zeka</a>
+              <a class="dark:text-gray-300 text-gray-600 hover:text-primary text-sm font-medium" href="pages/teknoloji.html">Teknoloji</a>
+              <a class="dark:text-gray-300 text-gray-600 hover:text-primary text-sm font-medium" href="pages/bilim.html">Bilim</a>
+              <a class="dark:text-gray-300 text-gray-600 hover:text-primary text-sm font-medium" href="pages/robotik.html">Robotik</a>
+              <a class="dark:text-gray-300 text-gray-600 hover:text-primary text-sm font-medium" href="pages/gelecek.html">Gelecek</a>
             </nav>
           </div>
           <div class="flex items-center gap-2 sm:gap-4">
-            <button id="theme-toggle" class="flex items-center justify-center p-2 rounded-lg text-gray-300 hover:bg-gray-800">
+            <button id="theme-toggle" class="flex items-center justify-center p-2 rounded-lg dark:text-gray-300 text-gray-600 dark:hover:bg-gray-800 hover:bg-gray-200">
               <span class="material-symbols-outlined" id="theme-icon">light_mode</span>
             </button>
             <label class="hidden sm:flex flex-col min-w-40 !h-10 max-w-64">
               <div class="flex w-full items-stretch rounded-lg h-full">
-                <div class="text-gray-400 flex border border-gray-700 bg-gray-900 items-center justify-center pl-3 rounded-l-lg border-r-0">
+                <div class="dark:text-gray-400 text-gray-500 flex dark:border-gray-700 border-gray-300 dark:bg-gray-900 bg-gray-100 items-center justify-center pl-3 rounded-l-lg border-r-0 border">
                   <span class="material-symbols-outlined">search</span>
                 </div>
-                <input class="form-input w-full rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-gray-700 bg-gray-900 h-full placeholder:text-gray-400 px-4 rounded-l-none border-l-0 pl-2 text-sm" placeholder="Ara..." type="search" />
+                <input id="search-input" class="form-input w-full rounded-lg dark:text-white text-gray-900 focus:outline-0 focus:ring-2 focus:ring-primary dark:border-gray-700 border-gray-300 dark:bg-gray-900 bg-gray-100 h-full dark:placeholder:text-gray-400 placeholder:text-gray-500 px-4 rounded-l-none border-l-0 pl-2 text-sm" placeholder="Ara..." type="search" />
               </div>
             </label>
-            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-300 hover:bg-gray-800">
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg dark:text-gray-300 text-gray-600 dark:hover:bg-gray-800 hover:bg-gray-200">
               <span class="material-symbols-outlined">menu</span>
             </button>
           </div>
         </div>
       </div>
       <div id="mobile-menu" class="md:hidden hidden">
-        <div class="mx-auto max-w-7xl px-4 py-3 border-b border-gray-800">
+        <div class="mx-auto max-w-7xl px-4 py-3 border-b dark:border-gray-800 border-gray-200">
           <nav class="flex flex-col gap-2">
-            <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="pages/yapay-zeka.html">Yapay Zeka</a>
-            <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="pages/teknoloji.html">Teknoloji</a>
-            <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="pages/bilim.html">Bilim</a>
-            <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="pages/robotik.html">Robotik</a>
-            <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="pages/gelecek.html">Gelecek</a>
+            <a class="px-3 py-2 rounded-lg dark:text-gray-300 text-gray-700 dark:hover:bg-gray-800 hover:bg-gray-100" href="pages/yapay-zeka.html">Yapay Zeka</a>
+            <a class="px-3 py-2 rounded-lg dark:text-gray-300 text-gray-700 dark:hover:bg-gray-800 hover:bg-gray-100" href="pages/teknoloji.html">Teknoloji</a>
+            <a class="px-3 py-2 rounded-lg dark:text-gray-300 text-gray-700 dark:hover:bg-gray-800 hover:bg-gray-100" href="pages/bilim.html">Bilim</a>
+            <a class="px-3 py-2 rounded-lg dark:text-gray-300 text-gray-700 dark:hover:bg-gray-800 hover:bg-gray-100" href="pages/robotik.html">Robotik</a>
+            <a class="px-3 py-2 rounded-lg dark:text-gray-300 text-gray-700 dark:hover:bg-gray-800 hover:bg-gray-100" href="pages/gelecek.html">Gelecek</a>
           </nav>
         </div>
       </div>
@@ -121,79 +121,79 @@
     <main class="mx-auto max-w-7xl w-full px-4 md:px-10 lg:px-20 py-8 sm:py-10">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
         <section class="lg:col-span-2 flex flex-col gap-8 lg:gap-10">
-          <article class="rounded-xl overflow-hidden shadow-2xl bg-gray-900">
+          <article class="rounded-xl overflow-hidden shadow-2xl dark:bg-gray-900 bg-white">
             <div class="flex flex-col">
               <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800" alt="AI Art" class="w-full aspect-video object-cover" loading="lazy" />
               <div class="flex flex-col gap-4 p-5 sm:p-6 lg:p-8">
                 <header class="flex flex-col gap-2">
-                  <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">Yapay Zeka Sanat Üretebilir mi?</h2>
-                  <p class="text-gray-400 text-sm sm:text-base">Yapay zekadaki son gelişmelerin insan ve makine yaratıcılığı arasındaki çizgileri nasıl bulanıklaştırdığını keşfedin.</p>
+                  <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">OpenAI GPT-4 Turbo Tanıtıldı: Daha Hızlı, Daha Ucuz, Daha Güçlü</h2>
+                  <p class="text-gray-400 text-sm sm:text-base">OpenAI'ın yeni dil modeli GPT-4 Turbo, 128K token bağlam penceresi ve güncel bilgi desteğiyle geliştiricilere sunuldu. Fiyatlar %50 düştü.</p>
                 </header>
-                <a href="#" class="inline-flex items-center justify-center rounded-lg h-11 px-6 bg-primary text-white text-sm font-bold hover:bg-blue-500 transition-colors w-fit">Devamını Oku</a>
+                <a href="pages/gpt4-turbo.html" class="inline-flex items-center justify-center rounded-lg h-11 px-6 bg-primary text-white text-sm font-bold hover:bg-blue-500 transition-colors w-fit">Devamını Oku</a>
               </div>
             </div>
           </article>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-            <article class="flex flex-col gap-4 p-5 rounded-xl shadow-2xl bg-gray-900 hover:-translate-y-1 transition-transform">
+            <article class="flex flex-col gap-4 p-5 rounded-xl shadow-2xl dark:bg-gray-900 bg-white hover:-translate-y-1 transition-transform">
               <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600" alt="Quantum" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
               <div>
-                <h3 class="text-lg font-bold">Kuantum Bilgisayarlarında Yeni Dönüm Noktası</h3>
-                <p class="text-gray-400 text-sm mt-2">Bilim insanları önemli bir atılım gerçekleştirdi.</p>
+                <h3 class="text-lg font-bold">Google Gemini Ultra Geliyor: ChatGPT'ye Rakip</h3>
+                <p class="text-gray-400 text-sm mt-2">Google'ın en güçlü AI modeli Gemini Ultra, GPT-4'ü geride bırakacak performans vaat ediyor.</p>
               </div>
-              <a href="#" class="mt-auto text-blue-400 font-bold text-sm self-start hover:underline">Devamını Oku →</a>
+              <a href="pages/article-detail.html" class="mt-auto text-blue-400 font-bold text-sm self-start hover:underline">Devamını Oku →</a>
             </article>
 
-            <article class="flex flex-col gap-4 p-5 rounded-xl shadow-2xl bg-gray-900 hover:-translate-y-1 transition-transform">
+            <article class="flex flex-col gap-4 p-5 rounded-xl shadow-2xl dark:bg-gray-900 bg-white hover:-translate-y-1 transition-transform">
               <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=600" alt="Mars Robot" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
               <div>
-                <h3 class="text-lg font-bold">Mars İçin Otonom Robotlar</h3>
-                <p class="text-gray-400 text-sm mt-2">Yeni robotlar Mars yüzeyinde bağımsız çalışacak.</p>
+                <h3 class="text-lg font-bold">Meta Llama 3 Açık Kaynak Olarak Yayınlandı</h3>
+                <p class="text-gray-400 text-sm mt-2">Meta'nın yeni dil modeli Llama 3, 70 milyar parametreyle açık kaynak topluluğuna sunuldu.</p>
               </div>
-              <a href="#" class="mt-auto text-blue-400 font-bold text-sm self-start hover:underline">Devamını Oku →</a>
+              <a href="pages/article-detail.html" class="mt-auto text-blue-400 font-bold text-sm self-start hover:underline">Devamını Oku →</a>
             </article>
 
-            <article class="flex flex-col gap-4 p-5 rounded-xl shadow-2xl bg-gray-900 hover:-translate-y-1 transition-transform">
+            <article class="flex flex-col gap-4 p-5 rounded-xl shadow-2xl dark:bg-gray-900 bg-white hover:-translate-y-1 transition-transform">
               <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600" alt="DNA" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
               <div>
-                <h3 class="text-lg font-bold">Biyoteknolojideki Gelişmeler</h3>
-                <p class="text-gray-400 text-sm mt-2">Gen düzenlemeden kişiselleştirilmiş tıbba.</p>
+                <h3 class="text-lg font-bold">Anthropic Claude 3: En Akıllı AI Asistan</h3>
+                <p class="text-gray-400 text-sm mt-2">Claude 3 Opus, karmaşık görevlerde GPT-4 ve Gemini'yi geride bıraktı.</p>
               </div>
-              <a href="#" class="mt-auto text-blue-400 font-bold text-sm self-start hover:underline">Devamını Oku →</a>
+              <a href="pages/article-detail.html" class="mt-auto text-blue-400 font-bold text-sm self-start hover:underline">Devamını Oku →</a>
             </article>
 
-            <article class="flex flex-col gap-4 p-5 rounded-xl shadow-2xl bg-gray-900 hover:-translate-y-1 transition-transform">
+            <article class="flex flex-col gap-4 p-5 rounded-xl shadow-2xl dark:bg-gray-900 bg-white hover:-translate-y-1 transition-transform">
               <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600" alt="Future City" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
               <div>
-                <h3 class="text-lg font-bold">Geleceğin Şehirleri</h3>
-                <p class="text-gray-400 text-sm mt-2">Akıllı altyapı ve sürdürülebilir enerji.</p>
+                <h3 class="text-lg font-bold">Apple Vision Pro Türkiye'de: Fiyat 120.000 TL</h3>
+                <p class="text-gray-400 text-sm mt-2">Apple'ın karma gerçeklik gözlüğü Vision Pro, Türkiye'de satışa çıkıyor.</p>
               </div>
-              <a href="#" class="mt-auto text-blue-400 font-bold text-sm self-start hover:underline">Devamını Oku →</a>
+              <a href="pages/article-detail.html" class="mt-auto text-blue-400 font-bold text-sm self-start hover:underline">Devamını Oku →</a>
             </article>
           </div>
         </section>
 
         <aside class="lg:col-span-1">
           <div class="sticky top-28 flex flex-col gap-8">
-            <section class="p-6 rounded-xl shadow-2xl bg-gray-900">
+            <section class="p-6 rounded-xl shadow-2xl dark:bg-gray-900 bg-white">
               <h3 class="text-xl font-bold mb-4">Trend Haberler</h3>
               <ul class="space-y-4">
-                <li class="border-b border-gray-800 pb-4 last:border-b-0 last:pb-0">
-                  <a class="group" href="#">
-                    <p class="font-semibold text-gray-300 group-hover:text-blue-400 transition-colors">Yapay zeka etiği üzerine yeni düzenlemeler.</p>
+                <li class="border-b dark:border-gray-800 border-gray-200 pb-4 last:border-b-0 last:pb-0">
+                  <a class="group" href="pages/article-detail.html">
+                    <p class="font-semibold dark:text-gray-300 text-gray-700 group-hover:text-blue-400 transition-colors">Elon Musk'un xAI'si 6 milyar dolar yatırım aldı</p>
+                    <span class="text-xs text-gray-500">Yapay Zeka</span>
+                  </a>
+                </li>
+                <li class="border-b dark:border-gray-800 border-gray-200 pb-4 last:border-b-0 last:pb-0">
+                  <a class="group" href="pages/article-detail.html">
+                    <p class="font-semibold dark:text-gray-300 text-gray-700 group-hover:text-blue-400 transition-colors">Microsoft Copilot Pro aboneliği Türkiye'de başladı</p>
                     <span class="text-xs text-gray-500">Teknoloji</span>
                   </a>
                 </li>
-                <li class="border-b border-gray-800 pb-4 last:border-b-0 last:pb-0">
-                  <a class="group" href="#">
-                    <p class="font-semibold text-gray-300 group-hover:text-blue-400 transition-colors">CERN deneyler evrenin sırlarını aralıyor.</p>
-                    <span class="text-xs text-gray-500">Bilim</span>
-                  </a>
-                </li>
-                <li class="border-b border-gray-800 pb-4 last:border-b-0 last:pb-0">
-                  <a class="group" href="#">
-                    <p class="font-semibold text-gray-300 group-hover:text-blue-400 transition-colors">Robotik cerrahi ameliyatları güvenli hale getiriyor.</p>
-                    <span class="text-xs text-gray-500">Robotik</span>
+                <li class="border-b dark:border-gray-800 border-gray-200 pb-4 last:border-b-0 last:pb-0">
+                  <a class="group" href="pages/article-detail.html">
+                    <p class="font-semibold dark:text-gray-300 text-gray-700 group-hover:text-blue-400 transition-colors">Nvidia H100 GPU'ları Türkiye'de satışa sunuldu</p>
+                    <span class="text-xs text-gray-500">Teknoloji</span>
                   </a>
                 </li>
               </ul>
@@ -213,36 +213,36 @@
       </div>
     </main>
 
-    <footer class="bg-gray-900 mt-16">
+    <footer class="dark:bg-gray-900 bg-gray-100 mt-16">
       <div class="mx-auto max-w-7xl px-4 md:px-10 lg:px-20 py-10">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
           <div>
-            <h4 class="font-bold text-lg text-white mb-2">AI Haber</h4>
-            <p class="text-sm text-gray-400">Yapay zeka, teknoloji ve bilimin geleceğini keşfedin.</p>
+            <h4 class="font-bold text-lg dark:text-white text-gray-900 mb-2">AI Haber</h4>
+            <p class="text-sm dark:text-gray-400 text-gray-600">Yapay zeka, teknoloji ve bilimin geleceğini keşfedin.</p>
           </div>
           <div>
-            <h5 class="font-semibold text-gray-200 mb-2">Kategoriler</h5>
+            <h5 class="font-semibold dark:text-gray-200 text-gray-700 mb-2">Kategoriler</h5>
             <ul class="space-y-1">
-              <li><a class="text-sm text-gray-400 hover:text-primary" href="#">Yapay Zeka</a></li>
-              <li><a class="text-sm text-gray-400 hover:text-primary" href="#">Teknoloji</a></li>
-              <li><a class="text-sm text-gray-400 hover:text-primary" href="#">Bilim</a></li>
+              <li><a class="text-sm dark:text-gray-400 text-gray-600 hover:text-primary" href="#">Yapay Zeka</a></li>
+              <li><a class="text-sm dark:text-gray-400 text-gray-600 hover:text-primary" href="#">Teknoloji</a></li>
+              <li><a class="text-sm dark:text-gray-400 text-gray-600 hover:text-primary" href="#">Bilim</a></li>
             </ul>
           </div>
           <div>
-            <h5 class="font-semibold text-gray-200 mb-2">Hakkımızda</h5>
+            <h5 class="font-semibold dark:text-gray-200 text-gray-700 mb-2">Hakkımızda</h5>
             <ul class="space-y-1">
-              <li><a class="text-sm text-gray-400 hover:text-primary" href="pages/hakkimizda.html">Hakkımızda</a></li>
-              <li><a class="text-sm text-gray-400 hover:text-primary" href="pages/iletisim.html">İletişim</a></li>
-              <li><a class="text-sm text-gray-400 hover:text-primary" href="pages/gizlilik.html">Gizlilik</a></li>
+              <li><a class="text-sm dark:text-gray-400 text-gray-600 hover:text-primary" href="pages/hakkimizda.html">Hakkımızda</a></li>
+              <li><a class="text-sm dark:text-gray-400 text-gray-600 hover:text-primary" href="pages/iletisim.html">İletişim</a></li>
+              <li><a class="text-sm dark:text-gray-400 text-gray-600 hover:text-primary" href="pages/gizlilik.html">Gizlilik</a></li>
             </ul>
           </div>
           <div>
-            <h5 class="font-semibold text-gray-200 mb-2">Takip Edin</h5>
+            <h5 class="font-semibold dark:text-gray-200 text-gray-700 mb-2">Takip Edin</h5>
             <p class="text-sm text-gray-400">Twitter • LinkedIn • GitHub</p>
           </div>
         </div>
-        <div class="mt-8 border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-          <p>© 2024 AI Haber. Tüm hakları saklıdır.</p>
+        <div class="mt-8 border-t dark:border-gray-800 border-gray-300 pt-8 text-center text-sm">
+          <p class="dark:text-gray-400 text-gray-600">© 2024 AI Haber. Tüm hakları saklıdır.</p>
         </div>
       </div>
     </footer>
@@ -277,6 +277,19 @@
       }
       msg.textContent = 'Başarıyla abone oldunuz!'; msg.className = 'mt-2 text-sm text-green-300';
       form.reset();
+    });
+
+    // Arama fonksiyonu
+    const searchInput = document.getElementById('search-input');
+    searchInput?.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const query = searchInput.value.trim();
+        if (query) {
+          // Basit arama: Google site search kullan
+          window.location.href = `https://www.google.com/search?q=site:alpeki.github.io/aihaber ${encodeURIComponent(query)}`;
+        }
+      }
     });
   </script>
 </body>

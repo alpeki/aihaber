@@ -151,6 +151,13 @@
           <a href="#" class="mt-auto text-blue-400 font-bold text-sm self-start hover:underline">Devamını Oku →</a>
         </article>
       </div>
+
+      <!-- Pagination -->
+      <div class="flex justify-center mt-12">
+        <button id="load-more" class="px-8 py-3 bg-primary hover:bg-blue-500 text-white font-bold rounded-lg transition-colors">
+          Daha Fazla Yükle
+        </button>
+      </div>
     </main>
 
     <footer class="bg-gray-900 mt-16">
@@ -205,6 +212,18 @@
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     mobileBtn?.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+
+    // Pagination - Daha Fazla Yükle
+    const loadMoreBtn = document.getElementById('load-more');
+    loadMoreBtn?.addEventListener('click', () => {
+      loadMoreBtn.textContent = 'Yükleniyor...';
+      loadMoreBtn.disabled = true;
+      setTimeout(() => {
+        alert('Daha fazla haber yükleniyor... (Backend entegrasyonu gerekli)');
+        loadMoreBtn.textContent = 'Daha Fazla Yükle';
+        loadMoreBtn.disabled = false;
+      }, 500);
+    });
   </script>
 </body>
 </html>

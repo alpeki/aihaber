@@ -68,24 +68,25 @@
 8. ☐ Custom domain (opsiyonel - aihaber.com gibi)
 9. ☐ Analytics entegrasyonu (Google Analytics veya Plausible)
 10. ☐ Newsletter backend entegrasyonu (Mailchimp/SendGrid)
-11. ☐ Sayfalama (pagination) ekle
-12. ☐ İlgili haberler bölümü
+11. ☐ İlgili haberler bölümü (dinamik)
 
 ### Uzun Vade (v2 - 2+ Ay)
-13. ☐ Backend + CMS entegrasyonu (Strapi/Sanity)
-14. ☐ RSS feed parser (otomatik haber çekme)
-15. ☐ AI özetleme (OpenAI API)
-16. ☐ Kullanıcı yorumları sistemi
-17. ☐ Gelişmiş arama (Algolia/Meilisearch)
-18. ☐ Çoklu dil desteği (İngilizce)
+12. ☐ Backend + CMS entegrasyonu (Strapi/Sanity)
+13. ☐ RSS feed parser (otomatik haber çekme)
+14. ☐ AI özetleme (OpenAI API)
+15. ☐ Kullanıcı yorumları sistemi
+16. ☐ Gelişmiş arama (Algolia/Meilisearch)
+17. ☐ Çoklu dil desteği (İngilizce)
 
 
 ## Notes
 
 ### Teknik Notlar
 - **Git Repo**: https://github.com/alpeki/aihaber
-- **Commit ID**: 05e1e62 (İlk commit)
-- **Toplam Dosya**: 15 dosya, 1687 satır kod
+- **Live Site**: https://alpeki.github.io/aihaber/
+- **Son Commit**: b8cd231 (Progress.md güncelleme)
+- **Toplam Commit**: 4
+- **Toplam Dosya**: 21 dosya, ~2500+ satır kod
 - **Tailwind CDN**: Şu an CDN kullanıyoruz, production'da build'e geçmek daha performanslı olabilir
 - **Görseller**: Şu an Unsplash placeholder'lar kullanılıyor, gerçek görseller eklenecek
 - **Form backend**: E-posta formu şu an sadece frontend validasyon, backend entegrasyonu gerekecek
