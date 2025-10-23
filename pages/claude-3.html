@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anthropic Claude 3 - AI Haber</title>
+  <meta name="description" content="Claude 3 Opus, karmaşık görevlerde GPT-4 ve Gemini'yi geride bıraktı." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary":"#4A90E2","background-dark":"#101022"},fontFamily:{display:["Space Grotesk","sans-serif"]}}}};(function(){try{const ls=localStorage.getItem('theme');const html=document.documentElement;if(ls==='dark'||(!ls&&window.matchMedia('(prefers-color-scheme: dark)').matches)){html.classList.add('dark');}else{html.classList.add('light');}}catch(_){}})();</script>
+  <style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}</style>
+</head>
+<body class="bg-background-dark font-display text-white">
+  <header class="sticky top-0 z-40 bg-background-dark/80 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 md:px-10 lg:px-20">
+      <div class="flex items-center justify-between border-b border-gray-800 py-4">
+        <a href="../index.html" class="flex items-center gap-3 text-white">
+          <span class="size-6 text-primary"><svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"/></svg></span>
+          <h1 class="text-xl font-bold">AI Haber</h1>
+        </a>
+        <button id="theme-toggle" class="p-2 rounded-lg text-gray-300 hover:bg-gray-800"><span class="material-symbols-outlined" id="theme-icon">light_mode</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-4xl w-full px-4 md:px-10 py-8">
+    <nav class="mb-6 text-sm">
+      <ol class="flex items-center gap-2 text-gray-400">
+        <li><a href="../index.html" class="hover:text-primary">Ana Sayfa</a></li>
+        <li>/</li>
+        <li><a href="yapay-zeka.html" class="hover:text-primary">Yapay Zeka</a></li>
+        <li>/</li>
+        <li class="text-white">Claude 3</li>
+      </ol>
+    </nav>
+
+    <article class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+      <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200" alt="Claude 3" class="w-full aspect-video object-cover" />
+      
+      <div class="p-6 md:p-10">
+        <div class="flex items-center gap-4 mb-4 text-sm">
+          <span class="px-3 py-1 bg-primary/20 text-primary rounded-full font-semibold">Yapay Zeka</span>
+          <span class="text-gray-400">21 Ekim 2025</span>
+          <span class="text-gray-400">7 dakika okuma</span>
+        </div>
+
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">Anthropic Claude 3: En Akıllı AI Asistan</h1>
+
+        <div class="flex items-center gap-3 mb-8 pb-8 border-b border-gray-800">
+          <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">AB</div>
+          <div>
+            <p class="font-semibold">Alper Bayrak</p>
+            <p class="text-sm text-gray-400">AI Editörü</p>
+          </div>
+        </div>
+
+        <div class="prose prose-invert max-w-none">
+          <p class="text-lg text-gray-300 leading-relaxed mb-6">
+            Anthropic, yapay zeka dünyasını sarsan Claude 3 model ailesini tanıttı. Opus, Sonnet ve Haiku olmak üzere üç farklı versiyonda sunulan Claude 3, birçok benchmark'ta GPT-4 ve Gemini Ultra'yı geride bıraktı.
+          </p>
+
+          <h2 class="text-2xl font-bold mt-8 mb-4">Claude 3 Model Ailesi</h2>
+          <p class="text-gray-300 mb-4">
+            Claude 3, farklı ihtiyaçlara yönelik üç model içeriyor:
+          </p>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 mb-6">
+            <li><strong>Claude 3 Opus:</strong> En güçlü model, karmaşık görevler için</li>
+            <li><strong>Claude 3 Sonnet:</strong> Dengeli performans ve hız</li>
+            <li><strong>Claude 3 Haiku:</strong> En hızlı model, basit görevler için</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold mt-8 mb-4">Opus'un Üstün Performansı</h2>
+          <p class="text-gray-300 mb-4">
+            Claude 3 Opus, birçok alanda yeni standartlar belirledi:
+          </p>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 mb-6">
+            <li><strong>MMLU:</strong> %86.8 (GPT-4: %86.4)</li>
+            <li><strong>Kod Üretimi:</strong> %84.9 (GPT-4: %67.0)</li>
+            <li><strong>Matematik:</strong> %95.0 (GPT-4: %92.0)</li>
+            <li><strong>Akıl Yürütme:</strong> %96.4 (GPT-4: %93.0)</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold mt-8 mb-4">Görsel Anlama Yeteneği</h2>
+          <p class="text-gray-300 mb-6">
+            Claude 3, metin işlemenin yanı sıra görselleri de anlayabiliyor. Fotoğraflar, diyagramlar, grafikler ve el yazısı metinleri okuyup analiz edebiliyor. Bu özellik, belge işleme ve veri analizi için büyük avantaj sağlıyor.
+          </p>
+
+          <blockquote class="border-l-4 border-primary pl-4 italic text-gray-400 my-8">
+            "Claude 3 Opus, AI güvenliği ve performansı arasında mükemmel bir denge kuruyor. Kullanıcılar için hem güçlü hem de güvenilir bir asistan." - Dario Amodei, Anthropic CEO
+          </blockquote>
+
+          <h2 class="text-2xl font-bold mt-8 mb-4">Güvenlik ve Etik</h2>
+          <p class="text-gray-300 mb-6">
+            Anthropic, Claude 3'ü geliştirirken güvenliğe büyük önem verdi. Model, zararlı içerik üretme konusunda son derece dikkatli ve önyargıları minimize etmek için özel olarak eğitildi. Constitutional AI yaklaşımı sayesinde, Claude 3 etik kurallara uygun yanıtlar üretiyor.
+          </p>
+
+          <h2 class="text-2xl font-bold mt-8 mb-4">200K Token Bağlam Penceresi</h2>
+          <p class="text-gray-300 mb-6">
+            Claude 3, 200.000 token'lık devasa bir bağlam penceresine sahip. Bu, yaklaşık 150.000 kelime veya 500 sayfalık bir kitaba denk geliyor. Uzun belgeler, raporlar ve kod tabanları üzerinde çalışmak için ideal.
+          </p>
+
+          <h2 class="text-2xl font-bold mt-8 mb-4">Kullanım Alanları</h2>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 mb-6">
+            <li>Karmaşık araştırma ve analiz</li>
+            <li>Yazılım geliştirme ve kod incelemesi</li>
+            <li>Yaratıcı içerik üretimi</li>
+            <li>Belge özetleme ve çeviri</li>
+            <li>Müşteri destek chatbot'ları</li>
+            <li>Eğitim ve öğretim asistanı</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold mt-8 mb-4">Fiyatlandırma</h2>
+          <p class="text-gray-300 mb-4">Claude 3 API fiyatlandırması:</p>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 mb-6">
+            <li><strong>Opus:</strong> $15/milyon input token, $75/milyon output token</li>
+            <li><strong>Sonnet:</strong> $3/milyon input token, $15/milyon output token</li>
+            <li><strong>Haiku:</strong> $0.25/milyon input token, $1.25/milyon output token</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold mt-8 mb-4">Sonuç</h2>
+          <p class="text-gray-300">
+            Claude 3 Opus, yapay zeka asistanları arasında yeni bir lider olarak öne çıkıyor. Üstün performansı, güvenlik odaklı yaklaşımı ve geniş bağlam penceresi ile profesyonel kullanıcılar için ideal bir seçim. Anthropic'in AI güvenliğine verdiği önem, Claude 3'ü güvenilir bir iş ortağı haline getiriyor.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mt-8 pt-8 border-t border-gray-800">
+          <span class="text-sm px-3 py-1 bg-gray-800 rounded-full">#Anthropic</span>
+          <span class="text-sm px-3 py-1 bg-gray-800 rounded-full">#Claude3</span>
+          <span class="text-sm px-3 py-1 bg-gray-800 rounded-full">#AI</span>
+          <span class="text-sm px-3 py-1 bg-gray-800 rounded-full">#AIAssistant</span>
+        </div>
+
+        <div class="mt-8 pt-8 border-t border-gray-800">
+          <h3 class="text-xl font-bold mb-4">Haberi Paylaş</h3>
+          <div class="flex gap-3">
+            <button onclick="window.open('https://twitter.com/intent/tweet?text=Claude 3 Opus Tanıtıldı&url='+encodeURIComponent(window.location.href))" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg font-semibold transition-colors">Twitter</button>
+            <button onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href))" class="px-4 py-2 bg-blue-700 hover:bg-blue-800 rounded-lg font-semibold transition-colors">LinkedIn</button>
+            <button onclick="navigator.clipboard.writeText(window.location.href);alert('Link kopyalandı!')" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg font-semibold transition-colors">Kopyala</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="bg-gray-900 mt-16">
+    <div class="mx-auto max-w-7xl px-4 py-10 text-center text-sm text-gray-400"><p>© 2024 AI Haber. Tüm hakları saklıdır.</p></div>
+  </footer>
+
+  <script>const htmlEl=document.documentElement;const themeToggle=document.getElementById('theme-toggle');const themeIcon=document.getElementById('theme-icon');function setTheme(mode){if(mode==='dark'){htmlEl.classList.add('dark');htmlEl.classList.remove('light');themeIcon.textContent='light_mode';}else{htmlEl.classList.add('light');htmlEl.classList.remove('dark');themeIcon.textContent='dark_mode';}try{localStorage.setItem('theme',mode);}catch(_){}}themeToggle?.addEventListener('click',()=>{setTheme(htmlEl.classList.contains('dark')?'light':'dark');});</script>
+</body>
+</html>
