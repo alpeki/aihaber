@@ -22,49 +22,68 @@
   - Sidebar (trend haberler + newsletter)
   - Sticky header
   - Semantic HTML + erişilebilirlik
+- ✅ Proje klasör yapısı kuruldu:
+  - `pages/` (kategori sayfaları için)
+  - `assets/css/` (özel CSS için)
+  - `assets/js/` (özel JavaScript için)
+  - `assets/images/` (görseller için)
+- ✅ `README.md` oluşturuldu (proje dokümantasyonu)
+- ✅ 5 kategori sayfası oluşturuldu:
+  - `pages/yapay-zeka.html` (6 haber)
+  - `pages/teknoloji.html` (6 haber)
+  - `pages/bilim.html` (6 haber)
+  - `pages/robotik.html` (6 haber)
+  - `pages/gelecek.html` (6 haber)
+- ✅ Navigasyon linkleri bağlandı (ana sayfa ↔ kategori sayfaları)
+- ✅ Git kurulumu ve yapılandırması
+- ✅ `.gitignore` dosyası oluşturuldu
+- ✅ İlk commit yapıldı (15 dosya, 1687 satır)
+- ✅ GitHub repo oluşturuldu: https://github.com/alpeki/aihaber
+- ✅ GitHub'a push edildi
 
 
 ## Next tasks
 
-### Acil (Bu Oturum)
-1. ☐ Proje klasör yapısını oluştur:
-   - `pages/`
-   - `assets/css/`
-   - `assets/js/`
-   - `assets/images/`
-2. ☐ `README.md` oluştur (proje tanıtımı, kurulum, kullanım)
-3. ☐ `index.html` test et (tarayıcıda aç, mobil/desktop kontrol)
+### Acil (Sonraki Adım)
+1. ☐ GitHub Pages'i aktifleştir:
+   - Repo Settings > Pages
+   - Source: main branch, / (root)
+   - Site URL: https://alpeki.github.io/aihaber/
+2. ☐ Haber detay template: `pages/article-detail.html`
+3. ☐ Gerçek içerik ekle (5-10 haber)
 
-### Kısa Vade (Sonraki Oturum)
-4. ☐ Kategori sayfaları oluştur:
-   - `pages/yapay-zeka.html`
-   - `pages/teknoloji.html`
-   - `pages/bilim.html`
-   - `pages/robotik.html`
-   - `pages/gelecek.html`
-5. ☐ Haber detay template: `pages/article-detail.html`
-6. ☐ Navigasyon linklerini bağla (index.html → kategori sayfaları)
-7. ☐ Git repo oluştur + ilk commit
+### Kısa Vade (1 Hafta)
+4. ☐ SEO optimizasyonu:
+   - `sitemap.xml` oluştur
+   - `robots.txt` oluştur
+   - Meta tags iyileştir
+   - Open Graph tags ekle
+5. ☐ Lighthouse audit (performans, erişilebilirlik)
+6. ☐ Görselleri optimize et (WebP formatı, boyut küçültme)
+7. ☐ Arama fonksiyonu ekle (basit JavaScript)
 
-### Orta Vade (1-2 Hafta)
-8. ☐ Gerçek içerik ekle (5-10 haber)
-9. ☐ GitHub Pages veya Netlify'a deploy
-10. ☐ Lighthouse audit (performans, erişilebilirlik)
-11. ☐ SEO optimizasyonu (meta tags, sitemap, robots.txt)
-12. ☐ Custom domain (opsiyonel)
+### Orta Vade (2-4 Hafta)
+8. ☐ Custom domain (opsiyonel - aihaber.com gibi)
+9. ☐ Analytics entegrasyonu (Google Analytics veya Plausible)
+10. ☐ Newsletter backend entegrasyonu (Mailchimp/SendGrid)
+11. ☐ Sayfalama (pagination) ekle
+12. ☐ İlgili haberler bölümü
 
-### Uzun Vade (v2)
-13. ☐ Backend + CMS entegrasyonu
+### Uzun Vade (v2 - 2+ Ay)
+13. ☐ Backend + CMS entegrasyonu (Strapi/Sanity)
 14. ☐ RSS feed parser (otomatik haber çekme)
 15. ☐ AI özetleme (OpenAI API)
 16. ☐ Kullanıcı yorumları sistemi
-17. ☐ Arama fonksiyonu
-18. ☐ Analytics entegrasyonu
+17. ☐ Gelişmiş arama (Algolia/Meilisearch)
+18. ☐ Çoklu dil desteği (İngilizce)
 
 
 ## Notes
 
 ### Teknik Notlar
+- **Git Repo**: https://github.com/alpeki/aihaber
+- **Commit ID**: 05e1e62 (İlk commit)
+- **Toplam Dosya**: 15 dosya, 1687 satır kod
 - **Tailwind CDN**: Şu an CDN kullanıyoruz, production'da build'e geçmek daha performanslı olabilir
 - **Görseller**: Şu an Unsplash placeholder'lar kullanılıyor, gerçek görseller eklenecek
 - **Form backend**: E-posta formu şu an sadece frontend validasyon, backend entegrasyonu gerekecek

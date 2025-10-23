@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haber Başlığı - AI Haber</title>
+  <meta name="description" content="Haber açıklaması buraya gelecek" />
+  <link rel="canonical" href="https://alpeki.github.io/aihaber/pages/article-detail.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary":"#4A90E2","background-light":"#F9F9F9","background-dark":"#101022"},fontFamily:{display:["Space Grotesk","sans-serif"]},borderRadius:{DEFAULT:"0.5rem",lg:"0.75rem",xl:"1rem",full:"9999px"}}}};(function(){try{const ls=localStorage.getItem('theme');const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;const html=document.documentElement;if(ls==='dark'||(!ls&&prefersDark)){html.classList.add('dark');html.classList.remove('light');}else{html.classList.add('light');html.classList.remove('dark');}}catch(_){}})();</script>
+  <style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}</style>
+</head>
+<body class="bg-background-dark font-display text-white">
+  <header class="sticky top-0 z-40 bg-background-dark/80 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 md:px-10 lg:px-20">
+      <div class="flex items-center justify-between border-b border-gray-800 py-4">
+        <div class="flex items-center gap-8">
+          <a href="../index.html" class="flex items-center gap-3 text-white">
+            <span class="size-6 text-primary"><svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"/></svg></span>
+            <h1 class="text-xl font-bold">AI Haber</h1>
+          </a>
+          <nav class="hidden md:flex items-center gap-6">
+            <a class="text-gray-300 hover:text-primary text-sm font-medium" href="yapay-zeka.html">Yapay Zeka</a>
+            <a class="text-gray-300 hover:text-primary text-sm font-medium" href="teknoloji.html">Teknoloji</a>
+            <a class="text-gray-300 hover:text-primary text-sm font-medium" href="bilim.html">Bilim</a>
+            <a class="text-gray-300 hover:text-primary text-sm font-medium" href="robotik.html">Robotik</a>
+            <a class="text-gray-300 hover:text-primary text-sm font-medium" href="gelecek.html">Gelecek</a>
+          </nav>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="theme-toggle" class="p-2 rounded-lg text-gray-300 hover:bg-gray-800"><span class="material-symbols-outlined" id="theme-icon">light_mode</span></button>
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-300 hover:bg-gray-800"><span class="material-symbols-outlined">menu</span></button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden">
+      <div class="mx-auto max-w-7xl px-4 py-3 border-b border-gray-800">
+        <nav class="flex flex-col gap-2">
+          <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="yapay-zeka.html">Yapay Zeka</a>
+          <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="teknoloji.html">Teknoloji</a>
+          <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="bilim.html">Bilim</a>
+          <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="robotik.html">Robotik</a>
+          <a class="px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800" href="gelecek.html">Gelecek</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-4xl w-full px-4 md:px-10 py-8">
+    <!-- Breadcrumb -->
+    <nav class="mb-6 text-sm">
+      <ol class="flex items-center gap-2 text-gray-400">
+        <li><a href="../index.html" class="hover:text-primary">Ana Sayfa</a></li>
+        <li>/</li>
+        <li><a href="yapay-zeka.html" class="hover:text-primary">Yapay Zeka</a></li>
+        <li>/</li>
+        <li class="text-white">Haber Başlığı</li>
+      </ol>
+    </nav>
+
+    <!-- Article -->
+    <article class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+      <!-- Featured Image -->
+      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200" alt="Haber görseli" class="w-full aspect-video object-cover" />
+      
+      <!-- Content -->
+      <div class="p-6 md:p-10">
+        <!-- Category & Date -->
+        <div class="flex items-center gap-4 mb-4 text-sm">
+          <span class="px-3 py-1 bg-primary/20 text-primary rounded-full font-semibold">Yapay Zeka</span>
+          <span class="text-gray-400">23 Ekim 2025</span>
+          <span class="text-gray-400">5 dakika okuma</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Yapay Zeka Sanat Üretebilir mi? Yeni Algoritmalar İnsan ve Makine Yaratıcılığı Arasındaki Çizgileri Bulanıklaştırıyor</h1>
+
+        <!-- Author -->
+        <div class="flex items-center gap-3 mb-8 pb-8 border-b border-gray-800">
+          <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-lg">AB</div>
+          <div>
+            <p class="font-semibold">Alper Bayrak</p>
+            <p class="text-sm text-gray-400">Teknoloji Editörü</p>
+          </div>
+        </div>
+
+        <!-- Article Body -->
+        <div class="prose prose-invert max-w-none">
+          <p class="text-lg text-gray-300 leading-relaxed mb-6">
+            Yapay zeka teknolojisindeki son gelişmeler, sanat ve yaratıcılık alanında devrim niteliğinde değişikliklere yol açıyor. DALL-E, Midjourney ve Stable Diffusion gibi görüntü oluşturma modelleri, sadece birkaç kelimelik açıklamalardan etkileyici görseller üretebiliyor.
+          </p>
+
+          <h2 class="text-2xl font-bold mt-8 mb-4">Yapay Zeka Nasıl Sanat Üretiyor?</h2>
+          <p class="text-gray-300 leading-relaxed mb-6">
+            Bu sistemler, milyonlarca görsel ve metin çifti üzerinde eğitilerek çalışıyor. Kullanıcı bir açıklama girdiğinde, model bu açıklamayı analiz ediyor ve öğrendiği kalıpları kullanarak tamamen yeni bir görsel oluşturuyor. Süreç, insan sanatçıların çalışma şekline benzer şekilde, ancak çok daha hızlı gerçekleşiyor.
+          </p>
+
+          <h2 class="text-2xl font-bold mt-8 mb-4">Tartışmalar ve Etik Sorunlar</h2>
+          <p class="text-gray-300 leading-relaxed mb-6">
+            Yapay zeka sanatının yükselişi, birçok tartışmayı da beraberinde getiriyor:
+          </p>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 mb-6">
+            <li>Telif hakları: AI modelleri, telif hakkıyla korunan eserleri kullanarak eğitiliyor</li>
+            <li>Sanatçıların geçim kaynağı: Geleneksel sanatçılar işlerini kaybedebilir mi?</li>
+            <li>Yaratıcılığın tanımı: Makine tarafından üretilen eser "sanat" sayılabilir mi?</li>
+            <li>Orijinallik: AI tarafından üretilen görseller gerçekten özgün mü?</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold mt-8 mb-4">Geleceğe Bakış</h2>
+          <p class="text-gray-300 leading-relaxed mb-6">
+            Uzmanlar, yapay zeka sanatının insan sanatçıların yerini almaktan ziyade, onlara yeni araçlar sunacağını düşünüyor. Hibrit yaklaşımlar, insan yaratıcılığı ve AI gücünü birleştirerek daha önce hayal bile edilemeyen eserler ortaya çıkarabilir.
+          </p>
+
+          <blockquote class="border-l-4 border-primary pl-4 italic text-gray-400 my-8">
+            "Yapay zeka, sanatın sonunu değil, yeni bir başlangıcını temsil ediyor. Sanatçılar bu teknolojiyi benimsediğinde, yaratıcılığın sınırları genişleyecek." - Dr. Sarah Chen, AI Araştırmacısı
+          </blockquote>
+
+          <p class="text-gray-300 leading-relaxed">
+            Sonuç olarak, yapay zeka sanatı hızla gelişen ve tartışmalı bir alan olmaya devam ediyor. Teknoloji ilerledikçe, toplum olarak bu yeni araçların nasıl kullanılacağına ve düzenleneceğine dair kararlar almamız gerekecek.
+          </p>
+        </div>
+
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-2 mt-8 pt-8 border-t border-gray-800">
+          <span class="text-sm px-3 py-1 bg-gray-800 rounded-full text-gray-300">#YapayZeka</span>
+          <span class="text-sm px-3 py-1 bg-gray-800 rounded-full text-gray-300">#AI</span>
+          <span class="text-sm px-3 py-1 bg-gray-800 rounded-full text-gray-300">#Sanat</span>
+          <span class="text-sm px-3 py-1 bg-gray-800 rounded-full text-gray-300">#DALL-E</span>
+          <span class="text-sm px-3 py-1 bg-gray-800 rounded-full text-gray-300">#Midjourney</span>
+        </div>
+
+        <!-- Share -->
+        <div class="flex items-center gap-4 mt-8 pt-8 border-t border-gray-800">
+          <span class="text-gray-400 font-semibold">Paylaş:</span>
+          <a href="#" class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">
+            <span class="text-gray-300">Twitter</span>
+          </a>
+          <a href="#" class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">
+            <span class="text-gray-300">Facebook</span>
+          </a>
+          <a href="#" class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">
+            <span class="text-gray-300">LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Related Articles -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold mb-6">İlgili Haberler</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="flex flex-col gap-3 p-4 rounded-xl bg-gray-900 hover:-translate-y-1 transition-transform">
+          <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400" alt="ChatGPT" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
+          <div>
+            <h3 class="font-bold">ChatGPT-5 Geliyor: Neler Değişecek?</h3>
+            <p class="text-sm text-gray-400 mt-2">OpenAI'ın yeni dil modeli ile ilgili ilk detaylar ortaya çıktı.</p>
+          </div>
+          <a href="#" class="text-blue-400 font-bold text-sm hover:underline">Devamını Oku →</a>
+        </article>
+
+        <article class="flex flex-col gap-3 p-4 rounded-xl bg-gray-900 hover:-translate-y-1 transition-transform">
+          <img src="https://images.unsplash.com/photo-1655720828018-edd2daec9349?w=400" alt="AI Etiği" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
+          <div>
+            <h3 class="font-bold">Yapay Zeka Etiği: Yeni Düzenlemeler</h3>
+            <p class="text-sm text-gray-400 mt-2">AB'nin AI Act yasası ile yapay zeka kullanımına getirilen kurallar.</p>
+          </div>
+          <a href="#" class="text-blue-400 font-bold text-sm hover:underline">Devamını Oku →</a>
+        </article>
+
+        <article class="flex flex-col gap-3 p-4 rounded-xl bg-gray-900 hover:-translate-y-1 transition-transform">
+          <img src="https://images.unsplash.com/photo-1676573409838-239f8d0d5e0c?w=400" alt="Machine Learning" class="w-full aspect-video object-cover rounded-lg" loading="lazy" />
+          <div>
+            <h3 class="font-bold">Makine Öğrenmesinde Yeni Atılım</h3>
+            <p class="text-sm text-gray-400 mt-2">Daha az veriyle daha iyi sonuçlar veren yeni algoritma geliştirildi.</p>
+          </div>
+          <a href="#" class="text-blue-400 font-bold text-sm hover:underline">Devamını Oku →</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-900 mt-16">
+    <div class="mx-auto max-w-7xl px-4 md:px-10 lg:px-20 py-10">
+      <div class="mt-8 border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+        <p>© 2024 AI Haber. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>const htmlEl=document.documentElement;const themeToggle=document.getElementById('theme-toggle');const themeIcon=document.getElementById('theme-icon');function setTheme(mode){if(mode==='dark'){htmlEl.classList.add('dark');htmlEl.classList.remove('light');themeIcon.textContent='light_mode';}else{htmlEl.classList.add('light');htmlEl.classList.remove('dark');themeIcon.textContent='dark_mode';}try{localStorage.setItem('theme',mode);}catch(_){}}themeToggle?.addEventListener('click',()=>{setTheme(htmlEl.classList.contains('dark')?'light':'dark');});const mobileBtn=document.getElementById('mobile-menu-btn');const mobileMenu=document.getElementById('mobile-menu');mobileBtn?.addEventListener('click',()=>{mobileMenu.classList.toggle('hidden');});</script>
+</body>
+</html>

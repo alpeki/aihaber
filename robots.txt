@@ -1,0 +1,18 @@
+# AI Haber - Robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://alpeki.github.io/aihaber/sitemap.xml
+
+# Disallow admin/private areas (gelecekte eklenirse)
+Disallow: /admin/
+Disallow: /private/
+
+# Allow all pages
+Allow: /pages/
+Allow: /assets/
+
+# Crawl-delay
+Crawl-delay: 1
