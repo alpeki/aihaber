@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadLatestArticles();
 });
 
-// Mock data for articles
+// Mock data for articles (fallback if localStorage is empty)
 const mockArticles = [
     {
         id: 1,
@@ -60,6 +60,16 @@ const mockArticles = [
         popular: true
     }
 ];
+
+// Get articles from localStorage or use mock data
+function getArticles() {
+    const stored = localStorage.getItem('articles');
+    if (stored) {
+        const articles = JSON.parse(stored);
+        return articles.length > 0 ? articles : mockArticles;
+    }
+    return mockArticles;
+}
 
 let currentTheme = localStorage.getItem('theme') || 'dark';
 let currentLang = localStorage.getItem('lang') || 'en';
@@ -184,8 +194,9 @@ function initSearchFunctionality() {
 function performSearch() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const categoryFilter = document.getElementById('categoryFilter').value;
+    const allArticles = getArticles();
     
-    filteredArticles = mockArticles.filter(article => {
+    filteredArticles = allArticles.filter(article => {
         const matchesSearch = !searchTerm || 
             article.title.toLowerCase().includes(searchTerm) ||
             article.excerpt.toLowerCase().includes(searchTerm);
@@ -217,7 +228,7 @@ function initCategoryFiltering() {
 // Load Trending News
 function loadTrendingNews() {
     const trendingGrid = document.getElementById('trendingGrid');
-    const articlesToShow = filteredArticles.length > 0 ? filteredArticles : mockArticles;
+    const articlesToShow = filteredArticles.length > 0 ? filteredArticles : getArticles();
     const trending = articlesToShow.filter(a => a.popular).slice(0, 3);
     
     trendingGrid.innerHTML = trending.map(article => `
@@ -241,7 +252,7 @@ function loadTrendingNews() {
 // Load Latest Articles
 function loadLatestArticles() {
     const articlesList = document.getElementById('articlesList');
-    const articlesToShow = filteredArticles.length > 0 ? filteredArticles : mockArticles;
+    const articlesToShow = filteredArticles.length > 0 ? filteredArticles : getArticles();
     
     articlesList.innerHTML = articlesToShow.map(article => `
         <div class="article-item" data-id="${article.id}">

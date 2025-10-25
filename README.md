@@ -10,10 +10,18 @@
 
 - ✅ **Responsive Tasarım**: Mobil, tablet ve masaüstü uyumlu
 - ✅ **Dark/Light Tema**: Kullanıcı tercihi LocalStorage'da saklanır
-- ✅ **Mobil Menü**: Hamburger menü ile kolay navigasyon
-- ✅ **Erişilebilirlik**: WCAG 2.1 AA standartlarına uygun
-- ✅ **Hızlı**: Statik site, CDN kullanımı
-- ✅ **SEO Dostu**: Semantic HTML, meta tags
+- ✅ **Çok Dilli Destek**: Türkçe ve İngilizce
+- ✅ **Admin Paneli**: LocalStorage tabanlı içerik yönetimi
+- ✅ **Arama ve Filtreleme**: Kategori ve anahtar kelime bazlı
+- ✅ **3D Animasyonlar**: Three.js ile modern görsel efektler
+- ✅ **SEO Optimizasyonu**: Meta tags, sitemap, structured data
+- ✅ **Analytics Entegrasyonu**: Google Analytics 4 desteği
+- ✅ **Performans**: Lazy loading, preconnect, optimized assets
+
+## 🌐 Canlı Demo
+
+- **Ana Sayfa**: https://alpeki.github.io/aihaber/
+- **Admin Paneli**: https://alpeki.github.io/aihaber/admin.html
 
 ## 🚀 Hızlı Başlangıç
 
@@ -26,8 +34,8 @@
 
 1. **Projeyi klonlayın veya indirin:**
    ```bash
-   git clone https://github.com/kullaniciadi/ai-haber.git
-   cd ai-haber
+   git clone https://github.com/alpeki/aihaber.git
+   cd aihaber
    ```
 
 2. **index.html dosyasını açın:**
@@ -49,31 +57,31 @@
 ```
 ai.haber/
 ├── index.html              # Ana sayfa
-├── pages/                  # Kategori ve detay sayfaları
-│   ├── yapay-zeka.html
-│   ├── teknoloji.html
-│   └── article-detail.html
-├── assets/                 # Statik dosyalar
-│   ├── css/               # Özel CSS (opsiyonel)
-│   ├── js/                # Özel JavaScript (opsiyonel)
-│   └── images/            # Görseller
-├── AGENTS.md/             # Memory Bank (proje bağlamı)
-│   ├── projectbrief.md
-│   ├── productContext.md
-│   ├── systemPatterns.md
-│   ├── techContext.md
-│   ├── activeContext.md
-│   └── progress.md
-└── README.md              # Bu dosya
+├── admin.html              # Admin paneli
+├── style.css               # Ana stil dosyası
+├── script.js               # Ana JavaScript dosyası
+├── i18n.js                 # Çok dilli destek
+├── analytics.js            # Google Analytics entegrasyonu
+├── config.js               # Konfigürasyon ayarları
+├── parallax.js             # Parallax efektleri
+├── category-3d.js          # 3D kategori animasyonları
+├── sitemap.xml             # SEO sitemap
+├── robots.txt              # Arama motoru direktifleri
+├── .htaccess               # Apache yapılandırması
+├── DEPLOYMENT.md           # Deployment rehberi
+├── PERFORMANCE.md          # Performans optimizasyonları
+└── README.md               # Bu dosya
 ```
 
 ## 🛠️ Teknoloji Stack
 
-- **HTML5**: Semantic markup
-- **Tailwind CSS 3.x**: Utility-first CSS (CDN)
-- **Vanilla JavaScript (ES6+)**: Tema toggle, mobil menü, form validasyonu
-- **Google Fonts**: Space Grotesk
-- **Material Symbols**: İkon kütüphanesi
+- **HTML5**: Semantic markup, structured data
+- **CSS3**: Custom properties, animations, responsive design
+- **Vanilla JavaScript (ES6+)**: Modular architecture
+- **Three.js**: 3D graphics and animations
+- **Google Fonts**: Inter, Space Grotesk
+- **LocalStorage**: Client-side data persistence
+- **Google Analytics 4**: Usage tracking and analytics
 
 ## 🎨 Tasarım
 

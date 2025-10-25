@@ -6,13 +6,13 @@ Allow: /
 # Sitemap
 Sitemap: https://alpeki.github.io/aihaber/sitemap.xml
 
-# Disallow admin/private areas (gelecekte eklenirse)
+# Disallow admin panel from search engines
+Disallow: /admin.html
 Disallow: /admin/
 Disallow: /private/
 
-# Allow all pages
-Allow: /pages/
-Allow: /assets/
+# Allow all public pages
+Allow: /
 
 # Crawl-delay
 Crawl-delay: 1

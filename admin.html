@@ -166,35 +166,35 @@
 </head>
 <body>
     <div class="container">
-        <h1>🤖 AI News - Admin Panel</h1>
+        <h1>AI News - Admin Panel</h1>
 
         <div class="admin-grid">
             <div class="admin-card">
-                <h2>📊 Backend Status</h2>
-                <p>Backend API is <span class="status running">RUNNING</span></p>
-                <p>Server: <code>http://localhost:3000</code></p>
-                <a href="http://localhost:3000" target="_blank" class="btn">Open API</a>
+                <h2>Content Management</h2>
+                <p>Total Articles: <strong id="totalArticles">0</strong></p>
+                <p>Storage: <span class="status running">LocalStorage</span></p>
+                <button class="btn" onclick="exportArticles()">Export Data</button>
             </div>
 
             <div class="admin-card">
-                <h2>📰 RSS Feeds</h2>
-                <p>Automatic news fetching from 4 sources</p>
-                <p>Last update: <strong>Active (hourly)</strong></p>
-                <a href="http://localhost:3000/api/rss/cached" target="_blank" class="btn">View Cached News</a>
+                <h2>Published Articles</h2>
+                <p>View and manage your content</p>
+                <p>Last update: <strong id="lastUpdate">-</strong></p>
+                <button class="btn" onclick="viewArticles()">Manage Articles</button>
             </div>
 
             <div class="admin-card">
-                <h2>🤖 AI Features</h2>
-                <p>OpenAI integration for summarization</p>
-                <p>Status: <span class="status stopped">API Key Required</span></p>
-                <a href="#ai-setup" class="btn btn-secondary">Setup</a>
+                <h2>Categories</h2>
+                <p>Manage article categories</p>
+                <p>Active Categories: <strong id="categoryCount">4</strong></p>
+                <button class="btn btn-secondary" onclick="manageCategories()">Edit Categories</button>
             </div>
         </div>
 
         <div class="form-section">
             <h2>➕ Add New Article (Manual)</h2>
             <div class="info-box">
-                <strong>Note:</strong> This is a simple form. Articles are stored in memory. For persistent storage, you need to set up a database.
+                <strong>Note:</strong> Articles are stored in browser localStorage. Export your data regularly for backup.
             </div>
             
             <form id="articleForm">
@@ -232,64 +232,187 @@
             </form>
         </div>
 
-        <div class="form-section" id="ai-setup">
-            <h2>🔧 AI Setup (OpenAI)</h2>
-            <div class="info-box">
-                <strong>To enable AI features:</strong>
-                <ol style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                    <li>Get an API key from <a href="https://platform.openai.com" target="_blank" style="color: #FF6A00;">OpenAI Platform</a></li>
-                    <li>Create a <code>.env</code> file in the backend folder</li>
-                    <li>Add: <code>OPENAI_API_KEY=your_key_here</code></li>
-                    <li>Restart the backend server</li>
-                </ol>
-            </div>
-
-            <div class="code-block">
-# backend/.env<br>
-PORT=3000<br>
-OPENAI_API_KEY=sk-your-api-key-here<br>
-ALLOWED_ORIGINS=http://localhost:5173
+        <div class="form-section">
+            <h2>Manage Articles</h2>
+            <div id="articlesList" style="margin-top: 1rem;">
+                <!-- Articles will be listed here -->
             </div>
         </div>
 
         <div class="form-section">
-            <h2>📚 Quick Links</h2>
+            <h2>Quick Links</h2>
             <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                <a href="http://localhost:3000/api/articles" target="_blank" class="btn btn-secondary">View Articles API</a>
-                <a href="http://localhost:3000/api/rss/feeds" target="_blank" class="btn btn-secondary">RSS Sources</a>
-                <a href="http://localhost:3000/api/search?q=AI" target="_blank" class="btn btn-secondary">Test Search</a>
-                <a href="http://localhost:3000/api/i18n" target="_blank" class="btn btn-secondary">Languages</a>
                 <a href="index.html" class="btn">View Website</a>
+                <a href="https://github.com/alpeki/aihaber" target="_blank" class="btn btn-secondary">GitHub Repository</a>
+                <button class="btn btn-secondary" onclick="clearAllData()">Clear All Data</button>
             </div>
         </div>
     </div>
 
     <script>
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStats();
+            loadArticlesList();
+        });
+
+        // Article Form Submit
         document.getElementById('articleForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const article = {
+                id: Date.now(),
                 title: document.getElementById('title').value,
                 excerpt: document.getElementById('excerpt').value,
                 content: document.getElementById('content').value,
                 category: document.getElementById('category').value,
                 image: document.getElementById('image').value || 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop',
                 date: new Date().toISOString().split('T')[0],
-                readTime: '5 min read'
+                readTime: calculateReadTime(document.getElementById('content').value),
+                popular: false
             };
 
-            console.log('Article to publish:', article);
-            alert('Article created! (Note: This is a demo. To persist data, you need to connect to the backend API)');
-            
-            // In a real implementation, you would send this to your backend:
-            // fetch('http://localhost:3000/api/articles', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify(article)
-            // });
-
+            saveArticle(article);
             this.reset();
+            showNotification('Article published successfully!');
+            loadStats();
+            loadArticlesList();
         });
+
+        function calculateReadTime(content) {
+            const wordsPerMinute = 200;
+            const words = content.trim().split(/\s+/).length;
+            const minutes = Math.ceil(words / wordsPerMinute);
+            return `${minutes} min read`;
+        }
+
+        function saveArticle(article) {
+            let articles = JSON.parse(localStorage.getItem('articles') || '[]');
+            articles.unshift(article);
+            localStorage.setItem('articles', JSON.stringify(articles));
+            localStorage.setItem('lastUpdate', new Date().toISOString());
+        }
+
+        function loadStats() {
+            const articles = JSON.parse(localStorage.getItem('articles') || '[]');
+            const lastUpdate = localStorage.getItem('lastUpdate');
+            
+            document.getElementById('totalArticles').textContent = articles.length;
+            if (lastUpdate) {
+                const date = new Date(lastUpdate);
+                document.getElementById('lastUpdate').textContent = date.toLocaleString();
+            }
+        }
+
+        function loadArticlesList() {
+            const articles = JSON.parse(localStorage.getItem('articles') || '[]');
+            const container = document.getElementById('articlesList');
+            
+            if (articles.length === 0) {
+                container.innerHTML = '<p style="color: #888;">No articles yet. Create your first article above.</p>';
+                return;
+            }
+
+            container.innerHTML = articles.map(article => `
+                <div style="background: #0f0f0f; border: 1px solid #333; border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div style="flex: 1;">
+                            <h3 style="color: #FF6A00; margin-bottom: 0.5rem;">${article.title}</h3>
+                            <p style="color: #ccc; margin-bottom: 0.5rem;">${article.excerpt}</p>
+                            <div style="display: flex; gap: 1rem; font-size: 0.875rem; color: #888;">
+                                <span>${article.category.toUpperCase()}</span>
+                                <span>${article.date}</span>
+                                <span>${article.readTime}</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button onclick="editArticle(${article.id})" class="btn btn-secondary" style="padding: 0.5rem 1rem;">Edit</button>
+                            <button onclick="deleteArticle(${article.id})" class="btn" style="padding: 0.5rem 1rem; background: #ff0000;">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteArticle(id) {
+            if (!confirm('Are you sure you want to delete this article?')) return;
+            
+            let articles = JSON.parse(localStorage.getItem('articles') || '[]');
+            articles = articles.filter(a => a.id !== id);
+            localStorage.setItem('articles', JSON.stringify(articles));
+            
+            showNotification('Article deleted');
+            loadStats();
+            loadArticlesList();
+        }
+
+        function editArticle(id) {
+            const articles = JSON.parse(localStorage.getItem('articles') || '[]');
+            const article = articles.find(a => a.id === id);
+            
+            if (article) {
+                document.getElementById('title').value = article.title;
+                document.getElementById('excerpt').value = article.excerpt;
+                document.getElementById('content').value = article.content;
+                document.getElementById('category').value = article.category;
+                document.getElementById('image').value = article.image;
+                
+                deleteArticle(id);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function exportArticles() {
+            const articles = JSON.parse(localStorage.getItem('articles') || '[]');
+            const dataStr = JSON.stringify(articles, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `articles-backup-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            showNotification('Articles exported successfully!');
+        }
+
+        function viewArticles() {
+            document.getElementById('articlesList').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function manageCategories() {
+            alert('Category management feature coming soon!');
+        }
+
+        function clearAllData() {
+            if (!confirm('Are you sure you want to delete ALL articles? This cannot be undone!')) return;
+            localStorage.removeItem('articles');
+            localStorage.removeItem('lastUpdate');
+            showNotification('All data cleared');
+            loadStats();
+            loadArticlesList();
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #FF6A00;
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'fadeOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
     </script>
 </body>
 </html>
