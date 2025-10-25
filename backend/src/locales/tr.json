@@ -1,0 +1,64 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "categories": "Kategoriler",
+    "about": "Hakkımızda",
+    "contact": "İletişim"
+  },
+  "article": {
+    "readMore": "Devamını Oku",
+    "author": "Yazar",
+    "date": "Tarih",
+    "category": "Kategori",
+    "tags": "Etiketler",
+    "share": "Paylaş",
+    "comments": "Yorumlar",
+    "relatedArticles": "İlgili Haberler"
+  },
+  "search": {
+    "placeholder": "Haber ara...",
+    "results": "sonuç bulundu",
+    "noResults": "Sonuç bulunamadı",
+    "searching": "Aranıyor..."
+  },
+  "comments": {
+    "title": "Yorumlar",
+    "writeComment": "Yorum Yaz",
+    "name": "Adınız",
+    "email": "E-posta",
+    "message": "Mesajınız",
+    "submit": "Gönder",
+    "reply": "Yanıtla",
+    "like": "Beğen",
+    "delete": "Sil"
+  },
+  "newsletter": {
+    "title": "Bültene Abone Ol",
+    "description": "En son AI haberlerini e-posta ile alın",
+    "placeholder": "E-posta adresiniz",
+    "subscribe": "Abone Ol",
+    "success": "Başarıyla abone oldunuz!",
+    "error": "Bir hata oluştu"
+  },
+  "categories": {
+    "technology": "Teknoloji",
+    "ai": "Yapay Zeka",
+    "science": "Bilim",
+    "robotics": "Robotik",
+    "future": "Gelecek",
+    "finance": "Finans",
+    "environment": "Çevre"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "back": "Geri",
+    "next": "İleri",
+    "previous": "Önceki"
+  }
+}

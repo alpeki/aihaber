@@ -16,7 +16,9 @@
     <nav class="nav">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2>AI News</h2>
+                <a href="#home" class="logo-link">
+                    <h2 class="glitch" data-text="AI News">AI News</h2>
+                </a>
             </div>
             <div class="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
@@ -32,6 +34,10 @@
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.35-4.35"></path>
                     </svg>
+                </button>
+                <!-- Language Toggle -->
+                <button class="lang-toggle" id="langToggle" aria-label="Change language">
+                    <span class="lang-text" id="langText">EN</span>
                 </button>
                 <!-- Theme Toggle -->
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -67,12 +73,10 @@
                     <div class="search-filters">
                         <select id="categoryFilter">
                             <option value="">All Categories</option>
-                            <option value="ai">AI & Machine Learning</option>
+                            <option value="ai">AI</option>
                             <option value="tech">Technology</option>
                             <option value="robotics">Robotics</option>
-                            <option value="data">Data Science</option>
-                            <option value="future">Future Tech</option>
-                            <option value="business">AI Business</option>
+                            <option value="science">Science</option>
                         </select>
                         <select id="sortFilter">
                             <option value="newest">Newest First</option>
@@ -125,33 +129,23 @@
             <div class="categories-grid">
                 <div class="category-card scale-hover" data-category="ai">
                     <span class="category-icon">🤖</span>
-                    <h3>AI & Machine Learning</h3>
-                    <p>Latest developments in artificial intelligence and machine learning algorithms</p>
+                    <h3>AI</h3>
+                    <p>Latest developments in artificial intelligence</p>
                 </div>
                 <div class="category-card scale-hover" data-category="tech">
                     <span class="category-icon">💻</span>
                     <h3>Technology</h3>
-                    <p>Cutting-edge technology trends and breakthrough innovations</p>
+                    <p>Cutting-edge technology trends and innovations</p>
                 </div>
                 <div class="category-card scale-hover" data-category="robotics">
                     <span class="category-icon">🦾</span>
                     <h3>Robotics</h3>
-                    <p>Robotic engineering and automation in various industries</p>
+                    <p>Robotic engineering and automation</p>
                 </div>
-                <div class="category-card scale-hover" data-category="data">
-                    <span class="category-icon">📊</span>
-                    <h3>Data Science</h3>
-                    <p>Big data analytics, visualization, and data-driven insights</p>
-                </div>
-                <div class="category-card scale-hover" data-category="future">
-                    <span class="category-icon">🚀</span>
-                    <h3>Future Tech</h3>
-                    <p>Emerging technologies that will shape our tomorrow</p>
-                </div>
-                <div class="category-card scale-hover" data-category="business">
-                    <span class="category-icon">💼</span>
-                    <h3>AI Business</h3>
-                    <p>How AI is transforming business operations and strategies</p>
+                <div class="category-card scale-hover" data-category="science">
+                    <span class="category-icon">🔬</span>
+                    <h3>Science</h3>
+                    <p>Scientific breakthroughs and research</p>
                 </div>
             </div>
         </div>

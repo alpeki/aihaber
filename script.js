@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initNewsletterForm();
     initMobileMenu();
     initThemeToggle();
+    initLanguageToggle();
     initSearchFunctionality();
     initCategoryFiltering();
     
@@ -23,7 +24,6 @@ const mockArticles = [
         title: "Revolutionary AI Model Achieves Human-Level Reasoning",
         excerpt: "Scientists at leading tech companies have developed an AI system that demonstrates unprecedented reasoning capabilities.",
         category: "ai",
-        author: "Dr. Sarah Chen",
         date: "2024-10-24",
         readTime: "5 min read",
         image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop",
@@ -34,7 +34,6 @@ const mockArticles = [
         title: "Quantum Computing Breakthrough Promises Faster AI Training",
         excerpt: "Researchers have successfully demonstrated quantum-enhanced machine learning algorithms.",
         category: "tech",
-        author: "Prof. Michael Rodriguez",
         date: "2024-10-23",
         readTime: "7 min read",
         image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=250&fit=crop",
@@ -45,7 +44,6 @@ const mockArticles = [
         title: "Autonomous Robots Begin Mass Deployment in Manufacturing",
         excerpt: "Major automotive companies are implementing AI-powered robots across their production lines.",
         category: "robotics",
-        author: "Emily Watson",
         date: "2024-10-22",
         readTime: "4 min read",
         image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop",
@@ -55,8 +53,7 @@ const mockArticles = [
         id: 4,
         title: "AI-Powered Climate Models Predict Weather with 99% Accuracy",
         excerpt: "New machine learning algorithms are transforming meteorology.",
-        category: "data",
-        author: "Dr. James Liu",
+        category: "science",
         date: "2024-10-21",
         readTime: "6 min read",
         image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=250&fit=crop",
@@ -65,6 +62,7 @@ const mockArticles = [
 ];
 
 let currentTheme = localStorage.getItem('theme') || 'dark';
+let currentLang = localStorage.getItem('lang') || 'en';
 let filteredArticles = [];
 let articlesLoaded = 0;
 
@@ -78,6 +76,49 @@ function initThemeToggle() {
         document.body.setAttribute('data-theme', currentTheme);
         localStorage.setItem('theme', currentTheme);
     });
+}
+
+// Language Toggle
+function initLanguageToggle() {
+    const langToggle = document.getElementById('langToggle');
+    const langText = document.getElementById('langText');
+    
+    // Set initial language
+    langText.textContent = currentLang.toUpperCase();
+    document.documentElement.setAttribute('lang', currentLang);
+    
+    langToggle?.addEventListener('click', function() {
+        currentLang = currentLang === 'en' ? 'tr' : 'en';
+        langText.textContent = currentLang.toUpperCase();
+        document.documentElement.setAttribute('lang', currentLang);
+        localStorage.setItem('lang', currentLang);
+        
+        // Show notification
+        showNotification(`Language changed to ${currentLang === 'en' ? 'English' : 'Türkçe'}`);
+    });
+}
+
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: var(--accent-primary);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        z-index: 10000;
+        animation: slideIn 0.3s ease;
+    `;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, 2000);
 }
 
 // Search Functionality
@@ -151,7 +192,7 @@ function loadTrendingNews() {
                 <h3>${article.title}</h3>
                 <p>${article.excerpt}</p>
                 <div class="news-meta">
-                    <span>${article.author}</span>
+                    <span>${formatDate(article.date)}</span>
                     <span>${article.readTime}</span>
                 </div>
             </div>
@@ -174,7 +215,6 @@ function loadLatestArticles() {
                 <h3>${article.title}</h3>
                 <p>${article.excerpt}</p>
                 <div class="article-meta">
-                    <span>${article.author}</span>
                     <span>${formatDate(article.date)}</span>
                     <span>${article.readTime}</span>
                 </div>
@@ -185,12 +225,10 @@ function loadLatestArticles() {
 
 function getCategoryName(category) {
     const names = {
-        'ai': 'AI & Machine Learning',
+        'ai': 'AI',
         'tech': 'Technology',
         'robotics': 'Robotics',
-        'data': 'Data Science',
-        'future': 'Future Tech',
-        'business': 'AI Business'
+        'science': 'Science'
     };
     return names[category] || category;
 }

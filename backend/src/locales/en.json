@@ -1,0 +1,64 @@
+{
+  "nav": {
+    "home": "Home",
+    "categories": "Categories",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "article": {
+    "readMore": "Read More",
+    "author": "Author",
+    "date": "Date",
+    "category": "Category",
+    "tags": "Tags",
+    "share": "Share",
+    "comments": "Comments",
+    "relatedArticles": "Related Articles"
+  },
+  "search": {
+    "placeholder": "Search news...",
+    "results": "results found",
+    "noResults": "No results found",
+    "searching": "Searching..."
+  },
+  "comments": {
+    "title": "Comments",
+    "writeComment": "Write a Comment",
+    "name": "Your Name",
+    "email": "Email",
+    "message": "Your Message",
+    "submit": "Submit",
+    "reply": "Reply",
+    "like": "Like",
+    "delete": "Delete"
+  },
+  "newsletter": {
+    "title": "Subscribe to Newsletter",
+    "description": "Get the latest AI news via email",
+    "placeholder": "Your email address",
+    "subscribe": "Subscribe",
+    "success": "Successfully subscribed!",
+    "error": "An error occurred"
+  },
+  "categories": {
+    "technology": "Technology",
+    "ai": "Artificial Intelligence",
+    "science": "Science",
+    "robotics": "Robotics",
+    "future": "Future",
+    "finance": "Finance",
+    "environment": "Environment"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  }
+}

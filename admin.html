@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI News - Admin Panel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0f0f0f;
+            color: #ffffff;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #FF6A00;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .admin-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .admin-card:hover {
+            border-color: #FF6A00;
+            transform: translateY(-5px);
+        }
+
+        .admin-card h2 {
+            color: #FF6A00;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .admin-card p {
+            color: #ccc;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #FF6A00;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #ff8533;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #444;
+        }
+
+        .form-section {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #FF6A00;
+            font-weight: 600;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            background: #0f0f0f;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #FF6A00;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .status.running {
+            background: #00ff0033;
+            color: #00ff00;
+        }
+
+        .status.stopped {
+            background: #ff000033;
+            color: #ff0000;
+        }
+
+        .info-box {
+            background: #2a2a2a;
+            border-left: 4px solid #FF6A00;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .code-block {
+            background: #0f0f0f;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 AI News - Admin Panel</h1>
+
+        <div class="admin-grid">
+            <div class="admin-card">
+                <h2>📊 Backend Status</h2>
+                <p>Backend API is <span class="status running">RUNNING</span></p>
+                <p>Server: <code>http://localhost:3000</code></p>
+                <a href="http://localhost:3000" target="_blank" class="btn">Open API</a>
+            </div>
+
+            <div class="admin-card">
+                <h2>📰 RSS Feeds</h2>
+                <p>Automatic news fetching from 4 sources</p>
+                <p>Last update: <strong>Active (hourly)</strong></p>
+                <a href="http://localhost:3000/api/rss/cached" target="_blank" class="btn">View Cached News</a>
+            </div>
+
+            <div class="admin-card">
+                <h2>🤖 AI Features</h2>
+                <p>OpenAI integration for summarization</p>
+                <p>Status: <span class="status stopped">API Key Required</span></p>
+                <a href="#ai-setup" class="btn btn-secondary">Setup</a>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>➕ Add New Article (Manual)</h2>
+            <div class="info-box">
+                <strong>Note:</strong> This is a simple form. Articles are stored in memory. For persistent storage, you need to set up a database.
+            </div>
+            
+            <form id="articleForm">
+                <div class="form-group">
+                    <label for="title">Article Title</label>
+                    <input type="text" id="title" required placeholder="Enter article title">
+                </div>
+
+                <div class="form-group">
+                    <label for="excerpt">Excerpt</label>
+                    <textarea id="excerpt" required placeholder="Short description of the article"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="content">Full Content</label>
+                    <textarea id="content" required placeholder="Full article content"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="ai">AI</option>
+                        <option value="tech">Technology</option>
+                        <option value="robotics">Robotics</option>
+                        <option value="science">Science</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="image">Image URL</label>
+                    <input type="url" id="image" placeholder="https://example.com/image.jpg">
+                </div>
+
+                <button type="submit" class="btn">Publish Article</button>
+            </form>
+        </div>
+
+        <div class="form-section" id="ai-setup">
+            <h2>🔧 AI Setup (OpenAI)</h2>
+            <div class="info-box">
+                <strong>To enable AI features:</strong>
+                <ol style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Get an API key from <a href="https://platform.openai.com" target="_blank" style="color: #FF6A00;">OpenAI Platform</a></li>
+                    <li>Create a <code>.env</code> file in the backend folder</li>
+                    <li>Add: <code>OPENAI_API_KEY=your_key_here</code></li>
+                    <li>Restart the backend server</li>
+                </ol>
+            </div>
+
+            <div class="code-block">
+# backend/.env<br>
+PORT=3000<br>
+OPENAI_API_KEY=sk-your-api-key-here<br>
+ALLOWED_ORIGINS=http://localhost:5173
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>📚 Quick Links</h2>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="http://localhost:3000/api/articles" target="_blank" class="btn btn-secondary">View Articles API</a>
+                <a href="http://localhost:3000/api/rss/feeds" target="_blank" class="btn btn-secondary">RSS Sources</a>
+                <a href="http://localhost:3000/api/search?q=AI" target="_blank" class="btn btn-secondary">Test Search</a>
+                <a href="http://localhost:3000/api/i18n" target="_blank" class="btn btn-secondary">Languages</a>
+                <a href="index.html" class="btn">View Website</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('articleForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const article = {
+                title: document.getElementById('title').value,
+                excerpt: document.getElementById('excerpt').value,
+                content: document.getElementById('content').value,
+                category: document.getElementById('category').value,
+                image: document.getElementById('image').value || 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop',
+                date: new Date().toISOString().split('T')[0],
+                readTime: '5 min read'
+            };
+
+            console.log('Article to publish:', article);
+            alert('Article created! (Note: This is a demo. To persist data, you need to connect to the backend API)');
+            
+            // In a real implementation, you would send this to your backend:
+            // fetch('http://localhost:3000/api/articles', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(article)
+            // });
+
+            this.reset();
+        });
+    </script>
+</body>
+</html>
