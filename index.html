@@ -4,12 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stay updated with the latest AI news, breakthroughs, and innovations. Discover cutting-edge artificial intelligence insights and trends shaping the future.">
+    <meta name="keywords" content="AI news, artificial intelligence, machine learning, robotics, technology news, AI innovations">
+    <meta name="author" content="AI News">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ai-news.com/">
+    <meta property="og:title" content="AI News - Stay Ahead of the Future">
+    <meta property="og:description" content="Discover the latest breakthroughs, insights, and innovations shaping tomorrow's world through artificial intelligence.">
+    <meta property="og:image" content="https://ai-news.com/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ai-news.com/">
+    <meta property="twitter:title" content="AI News - Stay Ahead of the Future">
+    <meta property="twitter:description" content="Discover the latest breakthroughs, insights, and innovations shaping tomorrow's world through artificial intelligence.">
+    <meta property="twitter:image" content="https://ai-news.com/og-image.jpg">
+    
     <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon.png" type="image/png">
+    <link rel="canonical" href="https://alpeki.github.io/aihaber/">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="./style.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" as="style">
+    
     <title>AI News - Stay Ahead of the Future</title>
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="./i18n.js"></script>
 </head>
 
 <body data-theme="dark">
@@ -130,23 +158,59 @@
             <div class="categories-grid">
                 <div class="category-card scale-hover" data-category="ai">
                     <canvas class="category-3d" id="ai-canvas"></canvas>
-                    <h3>AI</h3>
-                    <p>Latest developments in artificial intelligence</p>
+                    <div class="category-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="10" rx="2"/>
+                            <circle cx="12" cy="5" r="2"/>
+                            <path d="M12 7v4"/>
+                            <line x1="8" y1="16" x2="8" y2="16"/>
+                            <line x1="16" y1="16" x2="16" y2="16"/>
+                        </svg>
+                    </div>
+                    <h3>Yapay Zeka</h3>
+                    <p>Yapay zekadaki en son gelişmeler, makine öğrenimi ve sinir ağları</p>
+                    <span class="category-count">150+ Makale</span>
                 </div>
                 <div class="category-card scale-hover" data-category="tech">
                     <canvas class="category-3d" id="tech-canvas"></canvas>
-                    <h3>Technology</h3>
-                    <p>Cutting-edge technology trends and innovations</p>
+                    <div class="category-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <path d="M8 21h8"/>
+                            <path d="M12 17v4"/>
+                        </svg>
+                    </div>
+                    <h3>Teknoloji</h3>
+                    <p>En son teknoloji trendleri, yenilikler ve dijital dönüşüm</p>
+                    <span class="category-count">200+ Makale</span>
                 </div>
                 <div class="category-card scale-hover" data-category="robotics">
                     <canvas class="category-3d" id="robotics-canvas"></canvas>
-                    <h3>Robotics</h3>
-                    <p>Robotic engineering and automation</p>
+                    <div class="category-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="6" y="4" width="12" height="8" rx="1"/>
+                            <path d="M6 8h12"/>
+                            <path d="M9 12v9"/>
+                            <path d="M15 12v9"/>
+                            <circle cx="9" cy="21" r="1"/>
+                            <circle cx="15" cy="21" r="1"/>
+                        </svg>
+                    </div>
+                    <h3>Robotik</h3>
+                    <p>Robot mühendisliği, otomasyon sistemleri ve akıllı makineler</p>
+                    <span class="category-count">120+ Makale</span>
                 </div>
                 <div class="category-card scale-hover" data-category="science">
                     <canvas class="category-3d" id="science-canvas"></canvas>
-                    <h3>Science</h3>
-                    <p>Scientific breakthroughs and research</p>
+                    <div class="category-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 3v3M15 3v3M9 19v-3M15 19v-3M5 9h3M5 15h3M16 9h3M16 15h3"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Bilim</h3>
+                    <p>Bilimsel atılımlar, araştırmalar ve tüm alanlardaki yenilikler</p>
+                    <span class="category-count">180+ Makale</span>
                 </div>
             </div>
         </div>
@@ -247,7 +311,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p data-i18n="footer.copyright">&copy; 2024 AI News. All rights reserved. Built with passion for the future of technology.</p>
+                <p data-i18n="footer.copyright">&copy; <span id="currentYear"></span> AI News. All rights reserved. Built with passion for the future of technology.</p>
             </div>
         </div>
     </footer>
@@ -301,9 +365,11 @@
         </div>
     </div>
 
-    <script src="./parallax.js"></script>
-    <script src="./category-3d.js"></script>
-    <script type="module" src="./script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="./i18n.js" defer></script>
+    <script src="./parallax.js" defer></script>
+    <script src="./category-3d.js" defer></script>
+    <script src="./script.js" defer></script>
 </body>
 
 </html>

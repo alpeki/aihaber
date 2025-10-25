@@ -1,7 +1,5 @@
 // Main JavaScript file for AI News website
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('AI News website loaded!');
-    
     // Initialize all functionality
     initScrollAnimations();
     initSmoothScroll();
@@ -11,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initLanguageToggle();
     initSearchFunctionality();
     initCategoryFiltering();
+    initDynamicYear();
+    initActiveMenuLinks();
     
     // Load initial content
     loadTrendingNews();
@@ -149,12 +149,28 @@ function initSearchFunctionality() {
     const searchContainer = document.getElementById('searchContainer');
     const searchInput = document.getElementById('searchInput');
     
-    searchToggle?.addEventListener('click', function() {
+    searchToggle?.addEventListener('click', function(e) {
+        e.stopPropagation();
         searchContainer.classList.toggle('active');
         searchToggle.classList.toggle('active');
         if (searchContainer.classList.contains('active')) {
             setTimeout(() => searchInput.focus(), 300);
         }
+    });
+    
+    // Close search when clicking outside
+    document.addEventListener('click', function(e) {
+        if (searchContainer.classList.contains('active')) {
+            if (!searchContainer.contains(e.target) && e.target !== searchToggle) {
+                searchContainer.classList.remove('active');
+                searchToggle.classList.remove('active');
+            }
+        }
+    });
+    
+    // Prevent closing when clicking inside search container
+    searchContainer?.addEventListener('click', function(e) {
+        e.stopPropagation();
     });
     
     searchInput?.addEventListener('input', function() {
@@ -361,6 +377,45 @@ window.addEventListener('scroll', function() {
         nav.style.backdropFilter = 'blur(10px)';
     }
 });
+
+// Dynamic Year in Footer
+function initDynamicYear() {
+    const yearElement = document.getElementById('currentYear');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+}
+
+// Active Menu Links
+function initActiveMenuLinks() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    function updateActiveLink() {
+        let current = '';
+        const scrollPosition = window.scrollY + 100;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink(); // Initial call
+}
 
 // Make scrollToSection globally available
 window.scrollToSection = scrollToSection;
