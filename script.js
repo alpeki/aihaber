@@ -192,7 +192,14 @@ function initSearchFunctionality() {
 }
 
 function performSearch() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    let searchTerm = document.getElementById('searchInput').value;
+    
+    // Sanitize search query
+    if (typeof Sanitize !== 'undefined') {
+        searchTerm = Sanitize.searchQuery(searchTerm);
+    }
+    
+    searchTerm = searchTerm.toLowerCase();
     const categoryFilter = document.getElementById('categoryFilter').value;
     const allArticles = getArticles();
     
@@ -203,6 +210,11 @@ function performSearch() {
         const matchesCategory = !categoryFilter || article.category === categoryFilter;
         return matchesSearch && matchesCategory;
     });
+    
+    // Track search
+    if (typeof window.analytics !== 'undefined' && searchTerm) {
+        window.analytics.trackSearch(searchTerm, filteredArticles.length);
+    }
     
     articlesLoaded = 0;
     document.getElementById('articlesList').innerHTML = '';
@@ -344,11 +356,26 @@ function initNewsletterForm() {
     
     form?.addEventListener('submit', function(e) {
         e.preventDefault();
-        const email = emailInput.value.trim();
         
-        if (isValidEmail(email)) {
+        // Rate limiting check
+        if (typeof RateLimit !== 'undefined' && !RateLimit.check('newsletter', 3, 60000)) {
+            alert('Too many attempts. Please wait a minute.');
+            return;
+        }
+        
+        const rawEmail = emailInput.value.trim();
+        
+        // Sanitize email
+        const email = typeof Sanitize !== 'undefined' ? Sanitize.email(rawEmail) : rawEmail;
+        
+        if (email && isValidEmail(email)) {
             alert('Thank you for subscribing!');
             emailInput.value = '';
+            
+            // Track newsletter signup
+            if (typeof window.analytics !== 'undefined') {
+                window.analytics.trackNewsletterSignup(email);
+            }
         } else {
             alert('Please enter a valid email address');
         }

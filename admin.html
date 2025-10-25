@@ -249,6 +249,7 @@
         </div>
     </div>
 
+    <script src="./sanitize.js"></script>
     <script>
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
@@ -260,7 +261,13 @@
         document.getElementById('articleForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const article = {
+            // Rate limiting check
+            if (!RateLimit.check('article-submit', 5, 60000)) {
+                showNotification('Too many submissions. Please wait a minute.', 'error');
+                return;
+            }
+            
+            const rawArticle = {
                 id: Date.now(),
                 title: document.getElementById('title').value,
                 excerpt: document.getElementById('excerpt').value,
@@ -271,6 +278,14 @@
                 readTime: calculateReadTime(document.getElementById('content').value),
                 popular: false
             };
+
+            // Sanitize article data
+            const article = Sanitize.article(rawArticle);
+            
+            if (!article) {
+                showNotification('Invalid article data. Please check your inputs.', 'error');
+                return;
+            }
 
             saveArticle(article);
             this.reset();
@@ -391,13 +406,14 @@
             loadArticlesList();
         }
 
-        function showNotification(message) {
+        function showNotification(message, type = 'success') {
             const notification = document.createElement('div');
+            const bgColor = type === 'error' ? '#ff0000' : '#FF6A00';
             notification.style.cssText = `
                 position: fixed;
                 top: 20px;
                 right: 20px;
-                background: #FF6A00;
+                background: ${bgColor};
                 color: white;
                 padding: 1rem 1.5rem;
                 border-radius: 8px;
