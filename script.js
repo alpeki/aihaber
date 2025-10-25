@@ -85,16 +85,38 @@ function initLanguageToggle() {
     
     // Set initial language
     langText.textContent = currentLang.toUpperCase();
-    document.documentElement.setAttribute('lang', currentLang);
+    applyTranslations(currentLang);
     
     langToggle?.addEventListener('click', function() {
         currentLang = currentLang === 'en' ? 'tr' : 'en';
         langText.textContent = currentLang.toUpperCase();
-        document.documentElement.setAttribute('lang', currentLang);
         localStorage.setItem('lang', currentLang);
+        
+        // Apply translations
+        applyTranslations(currentLang);
+        
+        // Update category cards
+        updateCategoryCards();
         
         // Show notification
         showNotification(`Language changed to ${currentLang === 'en' ? 'English' : 'Türkçe'}`);
+    });
+}
+
+// Update category cards with translations
+function updateCategoryCards() {
+    const categories = ['ai', 'tech', 'robotics', 'science'];
+    const categoryCards = document.querySelectorAll('.category-card');
+    
+    categoryCards.forEach((card, index) => {
+        const category = categories[index];
+        const title = card.querySelector('h3');
+        const desc = card.querySelector('p');
+        
+        if (title && desc) {
+            title.textContent = t(`categories.${category}.title`, currentLang);
+            desc.textContent = t(`categories.${category}.desc`, currentLang);
+        }
     });
 }
 

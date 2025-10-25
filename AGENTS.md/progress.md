@@ -111,6 +111,19 @@
   - JSON tabanlı translation dosyaları
   - API endpoint'leri
 
+### Oturum 3 (25 Ekim 2025)
+- ✅ Site hizalaması düzeltildi (kategoriler 4 sütun, ortalı)
+- ✅ Dil değiştirme butonu eklendi (TR/EN toggle)
+- ✅ AI News logosu tıklanabilir yapıldı (home'a gider)
+- ✅ Glitch efekti eklendi (AI News logosuna)
+- ✅ Yazar bilgisi kaldırıldı (sadece tarih ve okuma süresi)
+- ✅ Kategoriler düzeltildi (5 kategori: All, AI, Technology, Robotics, Science)
+- ✅ "AI & Machine Learning" -> "AI" olarak değiştirildi
+- ✅ Share Modal CSS'i eklendi ve düzeltildi
+- ✅ Admin paneli oluşturuldu (admin.html)
+- ✅ GitHub'a push yapıldı (commit: c5ac293)
+- ✅ Notification sistemi eklendi (dil değişikliği için)
+
 
 ## Next tasks
 
@@ -138,6 +151,8 @@
 15. ✅ Kullanıcı yorumları sistemi - TAMAMLANDI
 16. ✅ Gelişmiş arama (Search API) - TAMAMLANDI
 17. ✅ Çoklu dil desteği (TR/EN) - TAMAMLANDI
+18. ✅ Admin Paneli (admin.html) - TAMAMLANDI
+19. ✅ UI/UX İyileştirmeleri - TAMAMLANDI
 
 
 ## Notes

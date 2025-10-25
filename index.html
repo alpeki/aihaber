@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="./i18n.js"></script>
 </head>
 
 <body data-theme="dark">
@@ -21,11 +22,11 @@
                 </a>
             </div>
             <div class="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#trending" class="nav-link">Trending</a>
-                <a href="#categories" class="nav-link">Categories</a>
-                <a href="#articles" class="nav-link">Latest</a>
-                <a href="#newsletter" class="nav-link">Newsletter</a>
+                <a href="#home" class="nav-link" data-i18n="nav.home">Home</a>
+                <a href="#trending" class="nav-link" data-i18n="nav.trending">Trending</a>
+                <a href="#categories" class="nav-link" data-i18n="nav.categories">Categories</a>
+                <a href="#articles" class="nav-link" data-i18n="nav.latest">Latest</a>
+                <a href="#newsletter" class="nav-link" data-i18n="nav.newsletter">Newsletter</a>
             </div>
             <div class="nav-controls">
                 <!-- Search Toggle -->
@@ -69,19 +70,19 @@
         <div class="search-container" id="searchContainer">
             <div class="container">
                 <div class="search-bar">
-                    <input type="text" id="searchInput" placeholder="Search articles, topics, or keywords..." autocomplete="off">
+                    <input type="text" id="searchInput" data-i18n="search.placeholder" placeholder="Search articles, topics, or keywords..." autocomplete="off">
                     <div class="search-filters">
                         <select id="categoryFilter">
-                            <option value="">All Categories</option>
+                            <option value="" data-i18n="search.allCategories">All Categories</option>
                             <option value="ai">AI</option>
                             <option value="tech">Technology</option>
                             <option value="robotics">Robotics</option>
                             <option value="science">Science</option>
                         </select>
                         <select id="sortFilter">
-                            <option value="newest">Newest First</option>
-                            <option value="oldest">Oldest First</option>
-                            <option value="popular">Most Popular</option>
+                            <option value="newest" data-i18n="search.newest">Newest First</option>
+                            <option value="oldest" data-i18n="search.oldest">Oldest First</option>
+                            <option value="popular" data-i18n="search.popular">Most Popular</option>
                         </select>
                     </div>
                 </div>
@@ -95,10 +96,10 @@
         <div class="hero-background"></div>
         <div class="container">
             <div class="hero-content fade-in">
-                <h1 class="hero-title fade-in">The Future of AI is Here</h1>
-                <p class="hero-subtitle fade-in">Discover the latest breakthroughs, insights, and innovations shaping tomorrow's world through artificial intelligence.</p>
+                <h1 class="hero-title fade-in" data-i18n="hero.title">The Future of AI is Here</h1>
+                <p class="hero-subtitle fade-in" data-i18n="hero.subtitle">Discover the latest breakthroughs, insights, and innovations shaping tomorrow's world through artificial intelligence.</p>
                 <button class="scroll-button fade-in" onclick="scrollToSection('trending')">
-                    <span>Explore News</span>
+                    <span data-i18n="hero.button">Explore News</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="7" y1="17" x2="17" y2="7"></line>
                         <polyline points="7,7 17,7 17,17"></polyline>
@@ -114,7 +115,7 @@
     <!-- Trending News Section -->
     <section class="trending" id="trending">
         <div class="container">
-            <h2 class="section-title fade-up">Trending Now</h2>
+            <h2 class="section-title fade-up" data-i18n="sections.trending">Trending Now</h2>
             <div class="trending-grid" id="trendingGrid">
                 <!-- News cards will be populated by JavaScript -->
             </div>
@@ -125,25 +126,25 @@
     <section class="categories" id="categories">
         <canvas class="categories-3d-canvas" id="categories-canvas"></canvas>
         <div class="container">
-            <h2 class="section-title fade-up">Explore Categories</h2>
+            <h2 class="section-title fade-up" data-i18n="sections.categories">Explore Categories</h2>
             <div class="categories-grid">
                 <div class="category-card scale-hover" data-category="ai">
-                    <span class="category-icon">🤖</span>
+                    <canvas class="category-3d" id="ai-canvas"></canvas>
                     <h3>AI</h3>
                     <p>Latest developments in artificial intelligence</p>
                 </div>
                 <div class="category-card scale-hover" data-category="tech">
-                    <span class="category-icon">💻</span>
+                    <canvas class="category-3d" id="tech-canvas"></canvas>
                     <h3>Technology</h3>
                     <p>Cutting-edge technology trends and innovations</p>
                 </div>
                 <div class="category-card scale-hover" data-category="robotics">
-                    <span class="category-icon">🦾</span>
+                    <canvas class="category-3d" id="robotics-canvas"></canvas>
                     <h3>Robotics</h3>
                     <p>Robotic engineering and automation</p>
                 </div>
                 <div class="category-card scale-hover" data-category="science">
-                    <span class="category-icon">🔬</span>
+                    <canvas class="category-3d" id="science-canvas"></canvas>
                     <h3>Science</h3>
                     <p>Scientific breakthroughs and research</p>
                 </div>
@@ -154,7 +155,7 @@
     <!-- Latest Articles Section -->
     <section class="articles" id="articles">
         <div class="container">
-            <h2 class="section-title fade-up">Latest Articles</h2>
+            <h2 class="section-title fade-up" data-i18n="sections.latest">Latest Articles</h2>
             <div class="articles-list" id="articlesList">
                 <!-- Articles will be populated by JavaScript -->
             </div>
@@ -184,16 +185,16 @@
         <div class="newsletter-background"></div>
         <div class="container">
             <div class="newsletter-content fade-up">
-                <h2>Stay Updated</h2>
-                <p>Get the latest AI news and insights delivered directly to your inbox. Join thousands of professionals staying ahead of the curve.</p>
+                <h2 data-i18n="newsletter.title">Stay Updated</h2>
+                <p data-i18n="newsletter.subtitle">Get the latest AI news and insights delivered directly to your inbox. Join thousands of professionals staying ahead of the curve.</p>
                 <form class="newsletter-form" id="newsletterForm">
                     <div class="form-group">
-                        <input type="email" id="email" placeholder="Enter your email address" required>
+                        <input type="email" id="email" data-i18n="newsletter.placeholder" placeholder="Enter your email address" required>
                         <button type="submit" class="subscribe-btn">
-                            <span>Subscribe</span>
+                            <span data-i18n="newsletter.button">Subscribe</span>
                         </button>
                     </div>
-                    <p class="form-disclaimer">We respect your privacy. Unsubscribe at any time.</p>
+                    <p class="form-disclaimer" data-i18n="newsletter.disclaimer">We respect your privacy. Unsubscribe at any time.</p>
                 </form>
             </div>
         </div>
@@ -205,7 +206,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>AI News</h3>
-                    <p>Your trusted source for artificial intelligence news, insights, and analysis. Stay informed about the technologies shaping our future.</p>
+                    <p data-i18n="footer.description">Your trusted source for artificial intelligence news, insights, and analysis. Stay informed about the technologies shaping our future.</p>
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="Twitter">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -227,26 +228,26 @@
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4 data-i18n="footer.quickLinks">Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="#trending">Trending</a></li>
-                        <li><a href="#categories">Categories</a></li>
-                        <li><a href="#articles">Latest Articles</a></li>
-                        <li><a href="#newsletter">Newsletter</a></li>
+                        <li><a href="#trending" data-i18n="nav.trending">Trending</a></li>
+                        <li><a href="#categories" data-i18n="nav.categories">Categories</a></li>
+                        <li><a href="#articles" data-i18n="nav.latest">Latest Articles</a></li>
+                        <li><a href="#newsletter" data-i18n="nav.newsletter">Newsletter</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Resources</h4>
+                    <h4 data-i18n="footer.resources">Resources</h4>
                     <ul class="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#" data-i18n="footer.about">About Us</a></li>
+                        <li><a href="#" data-i18n="footer.contact">Contact</a></li>
+                        <li><a href="#" data-i18n="footer.privacy">Privacy Policy</a></li>
+                        <li><a href="#" data-i18n="footer.terms">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 AI News. All rights reserved. Built with passion for the future of technology.</p>
+                <p data-i18n="footer.copyright">&copy; 2024 AI News. All rights reserved. Built with passion for the future of technology.</p>
             </div>
         </div>
     </footer>
@@ -300,6 +301,8 @@
         </div>
     </div>
 
+    <script src="./parallax.js"></script>
+    <script src="./category-3d.js"></script>
     <script type="module" src="./script.js"></script>
 </body>
 
