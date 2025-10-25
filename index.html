@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
+<link rel="manifest" href="/manifest.json"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Stay updated with the latest AI news, breakthroughs, and innovations. Discover cutting-edge artificial intelligence insights and trends shaping the future.">
@@ -11,15 +12,15 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alpeki.github.io/aihaber/">
-    <meta property="og:title" content="AI News - Yapay Zeka Haberleri ve Teknoloji İçerikleri">
-    <meta property="og:description" content="Yapay zeka, teknoloji, robotik ve bilim alanındaki en son gelişmeleri keşfedin. Geleceği şekillendiren teknolojiler hakkında güncel haberler.">
+    <meta property="og:title" content="AI News - Yapay Zeka Haberleri ve Teknoloji Ä°Ã§erikleri">
+    <meta property="og:description" content="Yapay zeka, teknoloji, robotik ve bilim alanÄ±ndaki en son geliÅŸmeleri keÅŸfedin. GeleceÄŸi ÅŸekillendiren teknolojiler hakkÄ±nda gÃ¼ncel haberler.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://alpeki.github.io/aihaber/">
     <meta property="twitter:title" content="AI News - Yapay Zeka Haberleri">
-    <meta property="twitter:description" content="Yapay zeka, teknoloji, robotik ve bilim alanındaki en son gelişmeleri keşfedin.">
+    <meta property="twitter:description" content="Yapay zeka, teknoloji, robotik ve bilim alanÄ±ndaki en son geliÅŸmeleri keÅŸfedin.">
     <meta property="twitter:image" content="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop">
     
     <!-- Structured Data -->
@@ -175,25 +176,25 @@
                 <div class="category-card scale-hover" data-category="ai">
                     <canvas class="category-3d" id="ai-canvas"></canvas>
                     <h3>Yapay Zeka</h3>
-                    <p>Yapay zekadaki en son gelişmeler, makine öğrenimi ve sinir ağları</p>
+                    <p>Yapay zekadaki en son geliÅŸmeler, makine Ã¶ÄŸrenimi ve sinir aÄŸlarÄ±</p>
                     <span class="category-count">150+ Makale</span>
                 </div>
                 <div class="category-card scale-hover" data-category="tech">
                     <canvas class="category-3d" id="tech-canvas"></canvas>
                     <h3>Teknoloji</h3>
-                    <p>En son teknoloji trendleri, yenilikler ve dijital dönüşüm</p>
+                    <p>En son teknoloji trendleri, yenilikler ve dijital dÃ¶nÃ¼ÅŸÃ¼m</p>
                     <span class="category-count">200+ Makale</span>
                 </div>
                 <div class="category-card scale-hover" data-category="robotics">
                     <canvas class="category-3d" id="robotics-canvas"></canvas>
                     <h3>Robotik</h3>
-                    <p>Robot mühendisliği, otomasyon sistemleri ve akıllı makineler</p>
+                    <p>Robot mÃ¼hendisliÄŸi, otomasyon sistemleri ve akÄ±llÄ± makineler</p>
                     <span class="category-count">120+ Makale</span>
                 </div>
                 <div class="category-card scale-hover" data-category="science">
                     <canvas class="category-3d" id="science-canvas"></canvas>
                     <h3>Bilim</h3>
-                    <p>Bilimsel atılımlar, araştırmalar ve tüm alanlardaki yenilikler</p>
+                    <p>Bilimsel atÄ±lÄ±mlar, araÅŸtÄ±rmalar ve tÃ¼m alanlardaki yenilikler</p>
                     <span class="category-count">180+ Makale</span>
                 </div>
             </div>
@@ -356,6 +357,15 @@
     <script src="./parallax.js" defer></script>
     <script src="./category-3d.js" defer></script>
     <script src="./script.js" defer></script>
-</body>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log('Service Worker aktif ✅', reg))
+      .catch(err => console.log('Service Worker hatası ❌', err));
+  });
+}
+</script></body>
 
 </html>
+
