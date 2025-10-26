@@ -1,4 +1,6 @@
 // Main JavaScript file for AI News website
+import { listArticles, getArticle, searchArticles, getTrendingArticles } from './src/lib/api.js';
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
     initScrollAnimations();
@@ -75,6 +77,9 @@ let currentTheme = localStorage.getItem('theme') || 'dark';
 let currentLang = localStorage.getItem('lang') || 'en';
 let filteredArticles = [];
 let articlesLoaded = 0;
+let currentCategory = '';
+let isLoading = false;
+let hasError = false;
 
 // Theme Toggle
 function initThemeToggle() {
@@ -191,7 +196,7 @@ function initSearchFunctionality() {
     document.getElementById('sortFilter')?.addEventListener('change', performSearch);
 }
 
-function performSearch() {
+async function performSearch() {
     let searchTerm = document.getElementById('searchInput').value;
     
     // Sanitize search query
@@ -199,89 +204,142 @@ function performSearch() {
         searchTerm = Sanitize.searchQuery(searchTerm);
     }
     
-    searchTerm = searchTerm.toLowerCase();
+    searchTerm = searchTerm.trim();
     const categoryFilter = document.getElementById('categoryFilter').value;
-    const allArticles = getArticles();
     
-    filteredArticles = allArticles.filter(article => {
-        const matchesSearch = !searchTerm || 
-            article.title.toLowerCase().includes(searchTerm) ||
-            article.excerpt.toLowerCase().includes(searchTerm);
-        const matchesCategory = !categoryFilter || article.category === categoryFilter;
-        return matchesSearch && matchesCategory;
-    });
-    
-    // Track search
-    if (typeof window.analytics !== 'undefined' && searchTerm) {
-        window.analytics.trackSearch(searchTerm, filteredArticles.length);
+    if (searchTerm) {
+        // Use Supabase search
+        showLoading('articlesList');
+        try {
+            filteredArticles = await searchArticles(searchTerm, { category: categoryFilter });
+            
+            // Track search
+            if (typeof window.analytics !== 'undefined') {
+                window.analytics.trackSearch(searchTerm, filteredArticles.length);
+            }
+        } catch (error) {
+            showError('articlesList', 'Search failed. Please try again.');
+            return;
+        }
+    } else {
+        // Just filter by category
+        currentCategory = categoryFilter;
+        filteredArticles = [];
     }
     
     articlesLoaded = 0;
     document.getElementById('articlesList').innerHTML = '';
-    loadLatestArticles();
-    loadTrendingNews();
+    await loadLatestArticles();
+    await loadTrendingNews();
 }
 
 // Category Filtering
 function initCategoryFiltering() {
     const categoryCards = document.querySelectorAll('.category-card');
     categoryCards.forEach(card => {
-        card.addEventListener('click', function() {
+        card.addEventListener('click', async function() {
             const category = this.getAttribute('data-category');
+            
+            // Update active state
             categoryCards.forEach(c => c.classList.remove('active'));
             this.classList.add('active');
+            
+            // Update current category
+            currentCategory = category;
             document.getElementById('categoryFilter').value = category;
-            performSearch();
+            filteredArticles = [];
+            
+            // Reload articles
+            await performSearch();
             scrollToSection('articles');
         });
     });
 }
 
 // Load Trending News
-function loadTrendingNews() {
+async function loadTrendingNews() {
     const trendingGrid = document.getElementById('trendingGrid');
-    const articlesToShow = filteredArticles.length > 0 ? filteredArticles : getArticles();
-    const trending = articlesToShow.filter(a => a.popular).slice(0, 3);
     
-    trendingGrid.innerHTML = trending.map(article => `
-        <div class="news-card" data-id="${article.id}">
-            <div class="news-image">
-                <img src="${article.image}" alt="${article.title}" loading="lazy">
-            </div>
-            <div class="news-content">
-                <span class="news-category">${getCategoryName(article.category)}</span>
-                <h3>${article.title}</h3>
-                <p>${article.excerpt}</p>
-                <div class="news-meta">
-                    <span>${formatDate(article.date)}</span>
-                    <span>${article.readTime}</span>
+    if (!trendingGrid) return;
+    
+    showLoading('trendingGrid');
+    
+    try {
+        let trending;
+        
+        if (filteredArticles.length > 0) {
+            trending = filteredArticles.slice(0, 3);
+        } else {
+            trending = await getTrendingArticles(3);
+        }
+        
+        if (trending.length === 0) {
+            trendingGrid.innerHTML = '<p class="text-center text-gray-400">No trending articles found.</p>';
+            return;
+        }
+        
+        trendingGrid.innerHTML = trending.map(article => `
+            <div class="news-card" data-id="${article.id}" onclick="navigateToArticle('${article.slug}')" style="cursor: pointer;">
+                <div class="news-image">
+                    <img src="${article.cover_url || 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop'}" alt="${escapeHtml(article.title)}" loading="lazy">
+                </div>
+                <div class="news-content">
+                    <span class="news-category">${getCategoryName(article.category)}</span>
+                    <h3>${escapeHtml(article.title)}</h3>
+                    <p>${escapeHtml(article.excerpt || '')}</p>
+                    <div class="news-meta">
+                        <span>${formatDate(article.published_at)}</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    `).join('');
+        `).join('');
+    } catch (error) {
+        console.error('Error loading trending news:', error);
+        showError('trendingGrid', 'Failed to load trending news.');
+    }
 }
 
 // Load Latest Articles
-function loadLatestArticles() {
+async function loadLatestArticles() {
     const articlesList = document.getElementById('articlesList');
-    const articlesToShow = filteredArticles.length > 0 ? filteredArticles : getArticles();
     
-    articlesList.innerHTML = articlesToShow.map(article => `
-        <div class="article-item" data-id="${article.id}">
-            <div class="article-image">
-                <img src="${article.image}" alt="${article.title}" loading="lazy">
-            </div>
-            <div class="article-content">
-                <span class="article-category">${getCategoryName(article.category)}</span>
-                <h3>${article.title}</h3>
-                <p>${article.excerpt}</p>
-                <div class="article-meta">
-                    <span>${formatDate(article.date)}</span>
-                    <span>${article.readTime}</span>
+    if (!articlesList) return;
+    
+    showLoading('articlesList');
+    
+    try {
+        let articles;
+        
+        if (filteredArticles.length > 0) {
+            articles = filteredArticles;
+        } else {
+            articles = await listArticles({ category: currentCategory, page: 1, limit: 9 });
+        }
+        
+        if (articles.length === 0) {
+            articlesList.innerHTML = '<p class="text-center text-gray-400 py-8">No articles found.</p>';
+            return;
+        }
+        
+        articlesList.innerHTML = articles.map(article => `
+            <div class="article-item" data-id="${article.id}" onclick="navigateToArticle('${article.slug}')" style="cursor: pointer;">
+                <div class="article-image">
+                    <img src="${article.cover_url || 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop'}" alt="${escapeHtml(article.title)}" loading="lazy">
+                </div>
+                <div class="article-content">
+                    <span class="article-category">${getCategoryName(article.category)}</span>
+                    <h3>${escapeHtml(article.title)}</h3>
+                    <p>${escapeHtml(article.excerpt || '')}</p>
+                    <div class="article-meta">
+                        <span>${formatDate(article.published_at)}</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    `).join('');
+        `).join('');
+    } catch (error) {
+        console.error('Error loading articles:', error);
+        showError('articlesList', 'Failed to load articles. Please try again later.');
+    }
 }
 
 function getCategoryName(category) {
@@ -295,14 +353,59 @@ function getCategoryName(category) {
 }
 
 function formatDate(dateString) {
+    if (!dateString) return 'Recently';
+    
     const date = new Date(dateString);
     const now = new Date();
     const diffDays = Math.ceil((now - date) / (1000 * 60 * 60 * 24));
     
+    if (diffDays === 0) return 'Today';
     if (diffDays === 1) return '1 day ago';
     if (diffDays < 7) return `${diffDays} days ago`;
     return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 }
+
+// Helper function to escape HTML
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Show loading state
+function showLoading(elementId) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    
+    isLoading = true;
+    element.innerHTML = `
+        <div class="loading-state" style="display: flex; justify-content: center; align-items: center; padding: 3rem;">
+            <div class="spinner" style="border: 3px solid rgba(74, 144, 226, 0.3); border-top: 3px solid #4A90E2; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite;"></div>
+        </div>
+    `;
+}
+
+// Show error state
+function showError(elementId, message) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    
+    hasError = true;
+    element.innerHTML = `
+        <div class="error-state" style="text-align: center; padding: 3rem; color: #ff6b6b;">
+            <p>${escapeHtml(message)}</p>
+            <button onclick="location.reload()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: var(--accent-primary); color: white; border: none; border-radius: 5px; cursor: pointer;">Retry</button>
+        </div>
+    `;
+}
+
+// Navigate to article detail page
+function navigateToArticle(slug) {
+    window.location.href = `./pages/article.html?slug=${slug}`;
+}
+
+// Make functions globally available
+window.navigateToArticle = navigateToArticle;
 
 // Scroll Animations
 function initScrollAnimations() {

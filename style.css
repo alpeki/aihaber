@@ -552,14 +552,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-content {
-    text-align: center;
+    text-align: left;
     max-width: 800px;
-    margin: 0 auto;
+    margin-left: 60px;
     padding: 0 20px 80px 20px;
     z-index: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 }
 
@@ -1171,4 +1171,17 @@ h1, h2, h3, h4, h5, h6 {
     .share-buttons {
         grid-template-columns: 1fr;
     }
+}
+
+/* Loading Spinner Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Category Active State */
+.category-card.active {
+    border: 2px solid var(--accent-primary);
+    box-shadow: 0 0 20px var(--accent-glow);
+    transform: translateY(-5px);
 }
