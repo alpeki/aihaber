@@ -45,6 +45,12 @@
 
 // Error Tracking
 window.addEventListener('error', function(e) {
+    // Ignore module-related errors during development
+    if (e.error?.message?.includes('import statement') || 
+        e.error?.message?.includes('module')) {
+        return;
+    }
+    
     console.error('Global error:', e.error);
     
     // Track error in analytics

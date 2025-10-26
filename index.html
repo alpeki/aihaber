@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -356,16 +356,9 @@
     <script src="./i18n.js" defer></script>
     <script src="./parallax.js" defer></script>
     <script src="./category-3d.js" defer></script>
-    <script src="./script.js" defer></script>
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(reg => console.log('Service Worker aktif ✅', reg))
-      .catch(err => console.log('Service Worker hatası ❌', err));
-  });
-}
-</script></body>
+    <script type="module" src="./src/lib/content.js"></script>
+    <script type="module" src="./script.js"></script>
+</body>
 
 </html>
 
