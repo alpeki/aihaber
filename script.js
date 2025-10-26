@@ -19,6 +19,22 @@ document.addEventListener('DOMContentLoaded', function() {
     loadLatestArticles();
 });
 
+// Register Service Worker (base-aware, gated by config)
+try {
+    const enableSW = typeof window !== 'undefined' && window.CONFIG?.performance?.enableServiceWorker;
+    if ('serviceWorker' in navigator && enableSW) {
+        window.addEventListener('load', () => {
+            const base = (import.meta?.env?.BASE_URL || '/').replace(/\/+$/, '/');
+            const swPath = `${base}service-worker.js`;
+            navigator.serviceWorker.register(swPath)
+                .then(reg => console.log('Service Worker registered:', reg.scope))
+                .catch(err => console.warn('Service Worker registration failed:', err));
+        });
+    }
+} catch (e) {
+    console.warn('Service Worker setup skipped:', e);
+}
+
 // Mock data for articles (fallback if localStorage is empty)
 const mockArticles = [
     {
