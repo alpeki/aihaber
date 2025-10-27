@@ -1,8 +1,14 @@
 {
+
   "name": "AI News",
   "short_name": "AI News",
   "description": "Your trusted source for artificial intelligence news and insights",
   "start_url": "/aihaber/",
+
+  "name": "AI Haber",
+  "short_name": "AIHaber",
+  "start_url": "/",
+>>>>>>> 7d13cbf (Frontend: updated API URL to Render backend)
   "display": "standalone",
   "background_color": "#0a0a0f",
   "theme_color": "#6366f1",

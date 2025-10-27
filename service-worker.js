@@ -1,3 +1,4 @@
+
 const CACHE_NAME = "aihaber-cache-v2";
 const SCOPE_PATH = (() => {
   try {
@@ -7,6 +8,9 @@ const SCOPE_PATH = (() => {
   }
 })();
 
+
+const CACHE_NAME = "aihaber-cache-v1";
+>>>>>>> 7d13cbf (Frontend: updated API URL to Render backend)
 const urlsToCache = [
   SCOPE_PATH,
   `${SCOPE_PATH}index.html`,
